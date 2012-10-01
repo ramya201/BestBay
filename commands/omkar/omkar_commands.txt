@@ -1,0 +1,175 @@
+    1  cd /c/Omkar/workspace/
+    2  git clone https://github.com/cmusv/Fall-2012-96821-Juggernauts.git
+    3  ls
+    4  cd Fall-2012-96821-Juggernauts/
+    5  ls
+    6  bundle install
+    7  gem install ruby-debug-base19 -v '0.11.25'
+    8  rails s
+    9  gem install ruby-debug-base19 -v '0.11.25'
+   10  gem uninstall ruby-debug-base19
+   11  bundle install
+   12  gem install ruby-debug-base19 -v '0.11.25'
+   13  vi gem install ruby-debug-base19 -v '0.11.25'11.25/ext/ruby_debug/gem_make.out
+   14  vi gem install ruby-debug-base19 -v '0.11.25/ext/ruby_debug/gem_make.out
+   15  vi c:/Omkar/Ruby193/lib/ruby/gems/1.9.1/gems/ruby-debug-base19-0.11.25/ext/ruby_debug/gem_make.out
+   16  gem install ruby-debug-base19 -v '0.11.25'
+   17  gem install linecache19-0.5.13.gem
+   18  curl -OL http://rubyforge.org/frs/download.php/75414/linecache19-0.5.13.gem
+   19  gem install linecache19-0.5.13.gem
+   20  gem install ruby-debug-base19 -v '0.11.25'
+   21  curl -OL http://rubyforge.org/frs/download.php/75415/ruby-debug-base19-0.11.26.gem
+   22  gem install ruby-debug-base19-0.11.26.gem -- --with-ruby-include=$SANDBOX/packages/ruby-1.9.3-p194
+   23  gem install ruby-debug-base19-0.11.26.gem
+   24  bundle install
+   25  rails s
+   26  bundle install
+   27  bundle install
+   28  bundle install
+   29  bundle install
+   30  rails generate model User username:String password:String first_name:String last_name:String image:String email:String
+   31  git checkout -f
+   32  git status
+   33  rm linecache19-0.5.13.gem ruby-debug-base19-0.11.26.gem 
+   34  git status
+   35  git reset --HARD
+   36  git reset --hard
+   37  git status
+   38  cd ..
+   39  git clone https://github.com/cmusv/Fall-2012-96821-Juggernauts.git
+   40  git add:keys
+   41  cd Fall-2012-96821-Juggernauts/
+   42  git branch omkar_1
+   43  git checkout omkar_1
+   44  bundle install
+   45  rails generate model User username:String password:String first_name:String last_name:String email:String image:String
+   46  git push -u origin
+   47  git commit -m "initial_omkar_commit"
+   48  git add .
+   49  git commit -m "initial_omkar_commit"
+   50  git push -u origin
+   51  git push -u origin omkar_1
+   52  git push origin --delete omkar_1
+   53  git push --help
+   54  git config -l
+   55  git config remote.origin.url git@github.com:cmusv/Fall-2012-96821-Juggernauts.git
+   56  git config -l
+   57  git push -u origin
+   58  cd ~/.ssh
+   59  ls
+   60  ssh-keygen -t rsa -C "hiomkar@gmail.com"
+   61  clip < ~/.ssh/key_cmusv
+   62  clip < ~/.ssh/key_cmusv.pub 
+   63  vi key_cmusv.pub 
+   64  clip < ~/.ssh/key_cmusv.pub
+   65  ssh -T git@github.com
+   66  cd /c/Omkar/workspace/
+   67  ls
+   68  cd Fall-2012-96821-Juggernauts/
+   69  ls
+   70  git branch
+   71  git checkout -b iteration_1
+   72  git pull origin iteration_1
+   73  git branch
+   74  merge omkar_1
+   75  git merge omkar_1
+   76  git checkout omkar_1 
+   77  git commit -m "merge"
+   78  git commit -a
+   79  git push
+   80  git pull
+   81  git pull iteration_1 iteration_1
+   82  git pull origin iteration_1
+   83  git commit -m "merged"
+   84  git push
+   85  git config --global color.ui true
+   86  git config --global user.name 'Omkar'
+   87  git config --global user.email 'hiomkar@gmail.com'
+   88  git log master ^origin/master
+   89  git log origin/master ^master
+   90  git diff --name-status master..branch
+   91  git diff
+   92  git init
+   93  ls
+   94  cd /c/Omkar/workspace/
+   95  ls
+   96  rm Fall-2012-96821-Juggernauts/
+   97  rm 
+   98  rm --help
+   99  rmdir Fall-2012-96821-Juggernauts/
+  100  cd Fall-2012-96821-Juggernauts/
+  101  rm *.*
+  102  ls
+  103  cd ..
+  104  cd Fall-2012-96821-Juggernauts/
+  105  cd ..
+  106  rmdir Fall-2012-96821-Juggernauts/
+  107  rmdir Fall-2012-96821-Juggernauts/
+  108  git clone https://github.com/cmusv/Fall-2012-96821-Juggernauts.git
+  109  git clone https://github.com/cmusv/Fall-2012-96821-Juggernauts.git
+  110  cd Fall-2012-96821-Juggernauts/
+  111  cd ..
+  112  ls
+  113  git clone -b iteration_1 git@github.com:cmusv/Fall-2012-96821-Juggernauts.git
+  114  ls
+  115  cd Fall-2012-96821-Juggernauts/
+  116  bundle exec rake db:migrate
+  117  bundle exec rake db:migrate --trace
+  118  bundle install
+  119  bundle exec rake db:migrate
+  120  bundle exec rake db:reset
+  121  git checkout iteration_1 
+  122  bundle exec rake db:reset
+  123  bundle exec rake db:migrate
+  124  bundle exec rake db:reset
+  125  bundle exec rake db:reset
+  126  bundle exec rake db:migrate
+  127  bundle exec rake db:migrate
+  128  bundle exec rake db:reset
+  129  rails destroy model test
+  130  rails destroy model brand
+  131  rails destroy model category
+  132  rails destroy model item
+  133  rails destroy model subcategory
+  134  rails destroy model user
+  135  bundle exec rake db:migrate
+  136  rails generate model brand name:String
+  137  rails generate model category name:String
+  138  rails generate model subcategory name:String add_index:category_id
+  139  rails destroy model subcategory
+  140  rails generate model subcategory name:String category_id:integer
+  141  rails generate model user username:String password:String first_name:String last_name:String email:String image:String
+  142  rails generate model item name:String description:String image:String start_price:integer instant_price:integer quantity:integer sale_type:String start_time:timestamp end_time:timestamp user_id:integer brand_id:integer category_id:integer subcategory_id:integer 
+  143  mkdir commands
+  144  history
+  145  cd commands/
+  146  mkdir omkar
+  147  history >> omkar_commands.txt
+  148  cd ..
+  149  ls
+  150  cd co
+  151  cd commands/
+  152  ls
+  153  mv omkar_commands.txt omkar/omkar_commands.txt
+  154  ls
+  155  cd omkar/
+  156  ls
+  157  cd ..
+  158  cd ..
+  159  bundle exec rake db:migrate
+  160  bundle exec rake db:reset
+  161  cd ..
+  162  git pull origin master
+  163  git clone https://github.com/cmusv/Fall-2012-96821-Juggernauts.git
+  164  ls
+  165  git clone https://github.com/cmusv/Fall-2012-96821-Juggernauts.git
+  166  cd Fall-2012-96821-Juggernauts/
+  167  git pull origin master
+  168  git checkout -b creating_db
+  169  bundle install
+  170  bundle exec rake db:migrate
+  171  mkdir commands
+  172  cd commands/
+  173  mkdir omkar
+  174  cd omkar/
+  175  history >> omkar_commands.txt
