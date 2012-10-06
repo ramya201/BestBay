@@ -2,6 +2,7 @@ BestBay::Application.routes.draw do
   get "categories/index"
   get "categories/show"
   get "dashboard/index"
+  get "dashboard/show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
