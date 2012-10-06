@@ -1,7 +1,21 @@
 BestBay::Application.routes.draw do
+  get "subcategories/list"
+
+  get "subcategories/show"
+
   get "categories/index"
 
   get "categories/show"
+
+  resources :subcategories do
+    member do
+      get 'view_subcategory'
+    end
+  end
+
+  resources :categories do
+    resources :subcategories
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

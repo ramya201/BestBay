@@ -19,17 +19,16 @@
           margin: 0;
           background-color: silver;
       }
-
   </style>
 </head>
 <body>
 <div id="header">
-  <table style="background: inherit;">
+  <table style="width:100%">
     <tr>
-      <td style="width:20%;"> <%= image_tag("Header.png", :alt => "Logo", :height=>"90px", :width=>"280px") %> </td>
+      <td style="width:20%;"> <%= image_tag("Header.png", :alt => "Logo", :height=>"80px", :width=>"100%") %> </td>
       <td style="width:50%; padding-left: 50px;vertical-align: middle;">
         <form class="navbar-search pull-left" style="width: 98%;">
-          <input type="text" class="search-query" placeholder="Search" style="width: 98%;">
+          <input type="text" class="search-query" placeholder="Search" style="width: 99%;">
         </form> </td>
       <td style="width:30%; padding-left: 100px;vertical-align: middle;">
         <ul class="nav nav-pills" style="vertical-align: middle;">
@@ -41,34 +40,36 @@
         </ul></td>
     </tr>
   </table>
+  <hr style="border-bottom: #a9a9a9;border-width:2px;border-style: solid;" >
 </div>
 <div id="content">
-  <!--<table>
+  <table style="width: 100%;">
     <tr>
-      <td style="width:20%;">
+      <td style="width:17%;">
         <table style="width: 100%;">
+          <tr>
+            <td style="background-color: maroon;color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;">
+                    Shop by Category
+            </td>
+          </tr>
          <tr>
-           <td style="font-weight: bold;font-size: large;color:silver;background-color: maroon;width: 300px; text-align: center;height: 50px;">
-                    Categories
+           <td>
+             <ul class="nav nav-list nav-stacked" style="width: 94%;">
+               <% @categories.each do |category| %>
+                   <li><%= link_to category.name, view_subcategory_subcategory_path(:id=>category.id),:remote => true,:style => "color:maroon;background-color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:20px" %></li>
+                   <div id=<%= "view_subcategory" + category.id.to_s %>>
+                   </div>
+               <% end %>
+
+             </ul>
            </td>
          </tr>
-          <% @categories.each do |category| %>
-              <tr>
 
-                <td style="font-weight: bold;font-size: large;color: maroon; background-color: silver; width: 300px; text-align: center;height: 50px;"> <%= category.name %></td>
-              </tr>
-          <% end %>
         </table></td>
       <td style="width:50%; padding-left: 10px;"></td>
       <td style="width:20%;"> </td>
     </tr>
-  </table>-->
-  <hr>
-  <ul class="nav nav-pills nav-stacked">
-    <% @categories.each do |category| %>
-        <li><a href="#"><%= category.name %></a></li>
-    <% end %>
-  </ul>
+  </table>
 
 </div>
 </body>

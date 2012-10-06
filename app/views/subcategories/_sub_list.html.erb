@@ -1,0 +1,5 @@
+<ul class="nav nav-list nav-stacked" style="border: silver;border-style: outset;border-width:2px;">
+  <% @subcategories.each do |subcategory| %>
+    <li><%= link_to subcategory.name,'#',:remote=>true, :style=>"color:maroon;font-size:small;padding-left:30px",:class=>"css-class" %></li>
+  <% end %>
+</ul>
