@@ -4,8 +4,9 @@ BestBay::Application.routes.draw do
   get "subcategories/show"
 
   get "categories/index"
-
   get "categories/show"
+  get "dashboard/index"
+  get "dashboard/show"
 
   resources :subcategories do
     member do
