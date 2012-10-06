@@ -8,6 +8,7 @@ gem 'bootstrap-sass','2.0.4'
 
 group :development, :test do
    gem 'sqlite3'
+   gem 'capybara', '1.1.2'
 end
 
 group :production do
