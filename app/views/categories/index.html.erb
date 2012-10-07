@@ -27,50 +27,65 @@
     <tr>
       <td style="width:20%;"> <%= image_tag("Header.png", :alt => "Logo", :height=>"80px", :width=>"100%") %> </td>
       <td style="width:50%; padding-left: 50px;vertical-align: middle;">
-        <form class="navbar-search pull-left" style="width: 98%;">
-          <input type="text" class="search-query" placeholder="Search" style="width: 99%;">
-        </form> </td>
-      <td style="width:30%; padding-left: 100px;vertical-align: middle;">
-        <ul class="nav nav-pills" style="vertical-align: middle;">
-          <li>
-            <a href="http://localhost:3000/">Home</a>
-          </li>
-          <li><a href="#">My Account</a></li>
-          <li><a href="#">Login</a></li>
-        </ul></td>
-    </tr>
+        <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "form-search" do %>
+
+            <p>
+              <%= text_field_tag :search, params[:search], :class =>"span2 search-query" %>
+              <%= submit_tag "Search", :name => nil, :class => "btn" %>
+            </p>
+
+
+        <% end %>
+        <td style="width:30%; padding-left: 100px;vertical-align: middle;">
+          <ul class="nav nav-pills" style="vertical-align: middle;">
+            <li>
+              <a href="http://localhost:3000/">Home</a>
+            </li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">Login</a></li>
+          </ul></td>
+        </tr>
   </table>
   <hr style="border-bottom: #a9a9a9;border-width:2px;border-style: solid;" >
 </div>
-<div id="content">
-  <table style="width: 100%;">
-    <tr>
-      <td style="width:17%;">
-        <table style="width: 100%;">
-          <tr>
-            <td style="background-color: maroon;color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;">
-                    Shop by Category
-            </td>
-          </tr>
-         <tr>
-           <td>
-             <ul class="nav nav-list nav-stacked" style="width: 94%;">
-               <% @categories.each do |category| %>
-                   <li><%= link_to category.name, view_subcategory_subcategory_path(:id=>category.id),:remote => true,:style => "color:maroon;background-color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:20px" %></li>
-                   <div id=<%= "view_subcategory" + category.id.to_s %>>
-                   </div>
-               <% end %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <table style="width: 100%;">
+        <tr>
+          <td style="width:17%;">
+            <table style="width: 100%;">
+              <tr>
+                <td style="background-color: maroon;color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;">
+                  Shop by Category
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <ul class="nav nav-list nav-stacked" style="width: 94%;">
+                    <% @categories.each do |category| %>
+                        <li><%= link_to category.name, view_subcategory_subcategory_path(:id=>category.id),:remote => true,:style => "color:maroon;background-color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:20px" %></li>
+                        <div id=<%= "view_subcategory" + category.id.to_s %>>
+                        </div>
+                    <% end %>
 
-             </ul>
-           </td>
-         </tr>
+                  </ul>
+                </td>
+              </tr>
 
-        </table></td>
-      <td style="width:50%; padding-left: 10px;"></td>
-      <td style="width:20%;"> </td>
-    </tr>
-  </table>
+            </table></td>
+          <td style="width:50%; padding-left: 10px;"></td>
+          <td style="width:20%;"> </td>
+        </tr>
+      </table>
 
+    </div>
+
+    <div class="span10">
+      <div id="items"><%= render 'items/item' %></div>
+
+    </div>
+  </div>
 </div>
 </body>
 </html>

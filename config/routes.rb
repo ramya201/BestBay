@@ -1,4 +1,14 @@
 BestBay::Application.routes.draw do
+  get "items/index"
+
+  get "items/show"
+
+  get "items/new"
+
+  get "items/edit"
+
+  get "items/destroy"
+
   get "subcategories/list"
 
   get "subcategories/show"
@@ -7,6 +17,8 @@ BestBay::Application.routes.draw do
   get "categories/show"
   get "dashboard/index"
   get "dashboard/show"
+
+  resources :items
 
   resources :subcategories do
     member do

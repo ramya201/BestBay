@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <tr class="success">
+    <th>Name</th>
+    <th>Description</th>
+    <th>Image</th>
+  </tr>
+
+  <% if @items.nil?
+       @items = Item.first(4)
+     end
+       @items.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.description %></td>
+            <td><img src='<%= item.image%>'></td>
+          </tr>
+      <%
+         end
+      %>
+</table>
