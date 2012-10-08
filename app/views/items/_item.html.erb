@@ -10,7 +10,7 @@
      end
        @items.each do |item| %>
           <tr>
-            <td><%= item.name %></td>
+            <td><%= link_to item.name, item_path(item) %></td>
             <td><%= item.description %></td>
             <td><img src='<%= image_path(item.image)%>'></td>
           </tr>

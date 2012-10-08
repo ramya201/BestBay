@@ -1,0 +1,42 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <td><%= link_to @item.name, item_path(@item) %></td>
+  </tr>
+  <tr>
+    <th>Brand</th>
+    <td><%= @item.brand.name %></td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td><%= @item.description %></td>
+  </tr>
+  <tr>
+    <th>Image</th>
+    <td><img src='<%= image_path(@item.image)%>'></td>
+  </tr>
+  <tr>
+    <th>Start Price</th>
+    <td><%= @item.start_price %></td>
+  </tr>
+  <tr>
+    <th>Instant Price</th>
+    <td><%= @item.instant_price %></td>
+  </tr>
+  <tr>
+    <th>Quantity in Stock</th>
+    <td><%= @item.quantity %></td>
+  </tr>
+  <tr>
+    <th>Sale Type</th>
+    <td><%= @item.sale_type %></td>
+  </tr>
+  <tr>
+    <th>Start Time</th>
+    <td><%= @item.start_time %></td>
+  </tr>
+    <tr>
+    <th>End Time</th>
+    <td><%= @item.end_time %></td>
+  </tr>
+</table>
