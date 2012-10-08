@@ -1,91 +1,69 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <title>Buy@BestBay!!</title>
 
-  <style type="text/css">
-      html, body {
-          height: 100%;
-          overflow: auto;
-      }
-      content {
-          padding: 0;
-          margin: 0;
-          background-color: #ffffff;
-      }
-      header {
-          padding: 0;
-          margin: 0;
-          background-color: silver;
-      }
-  </style>
-</head>
-<body>
-<div id="header">
-  <table style="width:100%">
-    <tr>
-      <td style="width:20%;"> <%= image_tag("Header.png", :alt => "Logo", :height=>"80px", :width=>"100%") %> </td>
-      <td style="width:50%; padding-left: 50px;vertical-align: middle;">
-        <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "form-search" do %>
-
-            <p>
-              <%= text_field_tag :search, params[:search], :class =>"span2 search-query" %>
-              <%= submit_tag "Search", :name => nil, :class => "btn" %>
-            </p>
-
-
-        <% end %>
-        <td style="width:30%; padding-left: 100px;vertical-align: middle;">
-          <ul class="nav nav-pills" style="vertical-align: middle;">
-            <li>
-              <a href="http://localhost:3000/">Home</a>
-            </li>
-            <li><a href="#">My Account</a></li>
-            <li><a href="#">Login</a></li>
-          </ul></td>
-        </tr>
-  </table>
-  <hr style="border-bottom: #a9a9a9;border-width:2px;border-style: solid;" >
-</div>
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
-      <table style="width: 100%;">
+    <div class="span2" style="width:100%;">
+
+      <table align="left" valign="top">
         <tr>
-          <td style="width:17%;">
-            <table style="width: 100%;">
-              <tr>
-                <td style="background-color: maroon;color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;">
-                  Shop by Category
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <ul class="nav nav-list nav-stacked" style="width: 94%;">
-                    <% @categories.each do |category| %>
-                        <li><%= link_to category.name, view_subcategory_subcategory_path(:id=>category.id),:remote => true,:style => "color:maroon;background-color:#faebd7;font-size:large;border:maroon;border-width:2px;border-style:outset;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:20px" %></li>
-                        <div id=<%= "view_subcategory" + category.id.to_s %>>
-                        </div>
-                    <% end %>
+          <td width="35%" align="left" valign="top">
 
-                  </ul>
-                </td>
-              </tr>
+            <div class="tabbable tabs-left" style="width:100%;">
+              <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+                <% @categories.each do |category| %>
+                    <li><a href="#tab<%= category.id %>" data-toggle="tab"><%= category.name %></a></li>
+                <% end %>
+              </ul>
 
-            </table></td>
-          <td style="width:50%; padding-left: 10px;"></td>
-          <td style="width:20%;"> </td>
+              <div class="tab-content">
+                <% @categories.each do |category| %>
+                    <div class="tab-pane" id="tab<%= category.id %>">
+                      <table>
+                        <tr>
+                          <td align="left" valign="top">
+                          <td>
+                            <table class="table table-bordered">
+                              <%
+                                 subcategories = Subcategory.find_all_by_category_id(category.id)
+
+                                 subcategories.each do |subcat|
+                              %>
+                                  <tr><td><%= subcat.name %></td></tr>
+                              <% end %>
+                            </table>
+                          </td>
+
+                        </tr>
+                      </table>
+                    </div>
+                <% end %>
+
+              </div>
+
+            </div> <!-- /tabbable -->
+
+          </td>
+
+          <td width="65%" align="left" valign="top">
+            <div class="span10" style="float: left;">
+
+              <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+                  <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search" %>
+              <% end %>
+
+
+              <div id="items"><%= render 'items/item' %></div>
+
+            </div>
+          </td>
+
         </tr>
+
       </table>
 
     </div>
 
-    <div class="span10">
-      <div id="items"><%= render 'items/item' %></div>
-
-    </div>
   </div>
 </div>
-</body>
-</html>
+
+
+

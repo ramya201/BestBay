@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   respond_to :html, :json, :xml
 
   def index
-    @items = Item.search(params[:search])
+      @items = Item.search(params[:search])
   end
 
   def show
