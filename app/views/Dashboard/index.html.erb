@@ -1,68 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <title>BestBay!!</title>
 
-  <style type="text/css">
-      html, body {
-          height: 100%;
-          overflow: auto;
-      }
-      content {
-          padding: 0;
-          margin: 0;
-          background-color: #ffffff;
-      }
-      header {
-          padding: 0;
-          margin: 0;
-          background-color: silver;
-      }
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2" style="width:100%;">
 
-  </style>
-</head>
-<body>
-<div id="header">
-  <table style="background: inherit;">
-    <tr>
-      <td style="width:20%;"> <%= image_tag("Header.png", :alt => "Logo", :height=>"90px", :width=>"280px") %> </td>
-      <td style="width:50%; padding-left: 50px;"><input type="text" style="width: 90%;"id="search"><button type="submit"><%= image_tag("search.png", :alt => "Search", :height=>"16px",:width => "16px") %></button> </td>
-      <td style="width:30%; padding-left: 100px;"><a href="">My Account</a>  <a href="" style="padding-left: 30px;">Login</a> <a href="http://localhost:3000/" style="padding-left: 30px;">Home</a></td>
-    </tr>
-  </table>
+      <table align="left" valign="top">
+        <tr>
+          <td width="35%" align="left" valign="top">
+
+            <div class="tabbable tabs-left" style="width:100%;">
+              <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+
+                    <li> <a href='#'>Sell Items</a></li>
+                    <li> <a href='#'>Sold History</a></li>
+                    <li> <a href='#'>Current Bids</a></li>
+                    <li> <a href='#'>Buy History</a></li>
+                    <li> <a href='#'>Track Orders</a></li>
+
+              </ul>
+
+            </div> <!-- /tabbable -->
+
+          </td>
+
+          <td width="65%" align="left" valign="top">
+            <div class="span10" style="float: left;">
+
+              <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+                  <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search" %>
+              <% end %>
+
+
+            </div>
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+  </div>
 </div>
-<div id="content">
-  <table>
-    <tr>
-      <td style="width:20%;">
-        <table style="width: 100%;">
-         <tr>
-           <td style="font-weight: bold;font-size: large;color:silver;background-color: maroon;width: 300px; text-align: center;height: 50px;">
-                    Menu
-           </td>
-         </tr>
-         <tr>
-           <td style="font-weight: bold;font-size: large;color: maroon; background-color: silver; width: 300px; text-align: center;height: 50px;">
-                Sell Item
-           </td>
-         </tr>
-         <tr>
-            <td style="font-weight: bold;font-size: large;color: maroon; background-color: silver; width: 300px; text-align: center;height: 50px;">
-                Sell History
-            </td>
-         </tr>
-          <tr>
-            <td style="font-weight: bold;font-size: large;color: maroon; background-color: silver; width: 300px; text-align: center;height: 50px;">
-                Current Items on Sale
-            </td>
-          </tr>
 
-        </table></td>
-      <td style="width:50%; padding-left: 10px;"></td>
-      <td style="width:20%;"> </td>
-    </tr>
-  </table>
-</div>
-</body>
-</html>
+
+
