@@ -10,11 +10,11 @@
             <div class="tabbable tabs-left" style="width:100%;">
               <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 
-                    <li> <a href='#'>Sell Items</a></li>
-                    <li> <a href='#'>Sold History</a></li>
-                    <li> <a href='#'>Current Bids</a></li>
-                    <li> <a href='#'>Buy History</a></li>
-                    <li> <a href='#'>Track Orders</a></li>
+                <li> <a href='#'>Sell Items</a></li>
+                <li> <a href='#'>Sold History</a></li>
+                <li> <a href='#'>Current Bids</a></li>
+                <li> <a href='#'>Buy History</a></li>
+                <li> <a href='#'>Track Orders</a></li>
 
               </ul>
 
@@ -25,10 +25,6 @@
           <td width="65%" align="left" valign="top">
             <div class="span10" style="float: left;">
 
-              <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
-                  <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search" %>
-              <% end %>
-
 
             </div>
           </td>
@@ -38,6 +34,7 @@
       </table>
 
     </div>
+    <div id="items"><%= render '/items/item' %></div>
 
   </div>
 </div>

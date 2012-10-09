@@ -22,7 +22,7 @@ $(function() {
         return false;
     });
     $("#items_search input").keyup(function() {
-        $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
+        $.get("/items/index", $("#items_search").serialize(), null, "script");
         return false;
     });
 });

@@ -46,11 +46,6 @@
           <td width="65%" align="left" valign="top">
             <div class="span10" style="float: left;">
 
-              <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
-                  <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search" %>
-              <% end %>
-
-
               <div id="items"><%= render 'items/item' %></div>
 
             </div>

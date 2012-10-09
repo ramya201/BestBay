@@ -1,5 +1,9 @@
 BestBay::Application.routes.draw do
 
+  get "dashboard/index"
+
+  get "dashboard/show"
+
   get "welcome/index"
 
   root :to => 'welcome#index'
@@ -20,8 +24,6 @@ BestBay::Application.routes.draw do
 
   get "categories/index"
   get "categories/show"
-  get "dashboard/index"
-  get "dashboard/show"
 
   resources :items
 

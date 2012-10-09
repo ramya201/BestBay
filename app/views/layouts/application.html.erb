@@ -47,6 +47,11 @@
       <%= link_to "BestBay", '/welcome/index', id: "logo", class: "brand"%>
       <nav>
         <ul class="nav pull-right">
+          <li>
+            <%= form_tag categories_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+                <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search" %>
+            <% end %>
+          </li>
           <li><%= link_to "My Account",    '/courses' %></li>
           <li><%= link_to "Help",    '/notes' %></li>
         </ul>
