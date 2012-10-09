@@ -4,6 +4,17 @@ BestBay::Application.routes.draw do
 
   root :to => 'welcome#index'
 
+  resources :items
+
+  resources :items do
+    member do
+      get 'catalogue'
+    end
+  end
+
+  match "items/catalogue/subcategory_id=:subcategory_id/category_id=:category_id" => "items#catalogue"
+
+
   get "items/index"
 
   get "items/show"
@@ -23,7 +34,9 @@ BestBay::Application.routes.draw do
   get "dashboard/index"
   get "dashboard/show"
 
-  resources :items
+
+
+
 
   resources :subcategories do
     member do
@@ -32,8 +45,15 @@ BestBay::Application.routes.draw do
   end
 
   resources :categories do
-    resources :subcategories
+    resources :subcategories do
+      resources :items
+    end
   end
+
+
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

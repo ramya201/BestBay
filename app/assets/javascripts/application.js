@@ -16,6 +16,7 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 
+
 $(function() {
     $("#items th a").live("click", function() {
         $.getScript(this.href);

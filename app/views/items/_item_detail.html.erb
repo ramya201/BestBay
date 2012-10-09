@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered" style="width: 60%;">
   <tr>
     <th>Name</th>
     <td><%= link_to @item.name, item_path(@item) %></td>
@@ -13,7 +13,7 @@
   </tr>
   <tr>
     <th>Image</th>
-    <td><img src='<%= image_path(@item.image)%>'></td>
+    <td><img src='<%= image_path(@item.image)%>' style="width: 200px;height: 200px;"></td>
   </tr>
   <tr>
     <th>Start Price</th>
