@@ -16,4 +16,19 @@ describe CategoriesController do
     end
   end
 
+=begin
+  describe "GET Index" do
+    it "assigns @categories" do
+      get :index
+      assigns(:categories).should eq([category])
+    end
+
+
+    it "renders the index template" do
+      get :index
+      response.should render_template("index")
+    end
+  end
+=end
+
 end

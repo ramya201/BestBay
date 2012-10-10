@@ -4,7 +4,9 @@
   <title><%= yield(:title) %></title>
   <%= stylesheet_link_tag    "application", media: "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "jquery.rails.js" %>
   <%= csrf_meta_tags %>
+
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -14,11 +16,12 @@
       body {
           padding-top: 60px;
           padding-bottom: 40px;
+          width: 100%;
 
       }
       #silverlightControlHost {
           height: 450px;
-          text-align:center;
+          width: 100%;
 
       }
       button.image1 {
@@ -44,14 +47,16 @@
 <header class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
+
       <%= link_to "BestBay", '/welcome/index', id: "logo", class: "brand"%>
+      <div style="float: left;margin-left: 30px;padding-left: 50px;">
+
+        <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+            <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
+        <% end %>
+        </div>
       <nav>
         <ul class="nav pull-right">
-          <li>
-            <%= form_tag categories_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
-                <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search" %>
-            <% end %>
-          </li>
           <li><%= link_to "My Account",    '/courses' %></li>
           <li><%= link_to "Help",    '/notes' %></li>
         </ul>
@@ -61,11 +66,10 @@
 </header>
 
 
-<div class="container">
+<div class="container" style="width: 95%;margin-left: 40px;">
   <%= yield %>
 
-  <footer class="footer" style="color: #ffffff;">
-    <br/>
+  <footer class="footer" style="color: #a9a9a9;">
     <nav>
       <small class="nav pull-left">&copy; 2012 Team Juggernauts</small>
     </nav>

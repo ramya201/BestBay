@@ -16,13 +16,19 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 
+
 $(function() {
     $("#items th a").live("click", function() {
         $.getScript(this.href);
         return false;
     });
     $("#items_search input").keyup(function() {
-        $.get("/items/index", $("#items_search").serialize(), null, "script");
+        //alert('searchval = '+$("#search").val());
+        $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
         return false;
     });
+    /*$(window).load(function () {
+        $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
+        return false;
+    });*/
 });

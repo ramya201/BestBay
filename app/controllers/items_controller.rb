@@ -3,7 +3,34 @@ class ItemsController < ApplicationController
   respond_to :html, :json, :xml
 
   def index
-      @items = Item.search(params[:search])
+    # if params.has_key?("search")
+    #render :file => '/categories/index', :layout => true
+    logger.info "items index.................................."
+    #redirect_to categories_path :layout => "true", :format => 'html', :search => params[:search]
+    #redirect_to 'http://rubyonrails.org', :format => 'html'
+    #redirect_to :controller => 'categories', :action => 'index', :format => 'html'
+=begin
+    respond_to do | format |
+      format.js  {redirect_to :controller => 'categories', :action => 'index', :format => 'html'}
+    end
+=end
+
+    @items = Item.search(params[:search])
+=begin
+    respond_to do | format |
+      format.js {redirect_to :controller => 'categories', :action => 'index', :format => 'html'}
+    end
+=end
+    #render :file => '/categories/index', :layout => true
+    logger.info "redirect.................................."
+=begin
+    elsif params.has_key?("category_id") and params.has_key?("subcategory_id")
+      @items = Item.where("category_id = ? AND subcategory_id = ?", params[:category_id], params[:subcategory_id])
+    end
+    respond_to do | format |
+      format.js
+    end
+=end
   end
 
   def show
@@ -18,4 +45,9 @@ class ItemsController < ApplicationController
 
   def destroy
   end
+
+  def search
+    respond_with :html
+  end
+
 end

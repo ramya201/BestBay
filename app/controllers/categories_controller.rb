@@ -9,6 +9,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html # index.html
+    end
   end
 
 end

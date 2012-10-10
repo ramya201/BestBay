@@ -1,9 +1,5 @@
-<%= form_tag items_path, :method => 'get', :id => "items_search", :class => "form-search" do %>
+<%= form_tag items_path, :method => 'get' do %>
 
-    <p>
-      <%= text_field_tag :search, params[:search], :class =>"span2 search-query" %>
-      <%= submit_tag "Search", :name => nil, :class => "btn" %>
-    </p>
-    <div id="items"><%= render 'item' %></div>
+    <div id="items"><%= render 'items/item' %></div>
 
 <% end %>

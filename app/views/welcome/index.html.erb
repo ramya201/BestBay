@@ -3,11 +3,12 @@
     body {
         background-color: black;
     }
-</style>
 
+</style>
+<body>
 <div id="myCarousel" class="carousel slide">
 
-  <div class="carousel-inner" align="middle">
+  <div class="carousel-inner" align="middle" style="width: 100%;">
     <div class="item"><img align="middle" src="<%= image_path('ebay1.jpg') %>" /></div>
     <div class="item"><img align="middle" src="<%= image_path('ebay2.jpg') %>" /></div>
     <div class="item"><img align="middle" src="<%= image_path('ebay3.jpg') %>" /></div>
@@ -57,3 +58,4 @@
 <script type="text/javascript">
     $('.carousel').carousel()
 </script>
+</body>

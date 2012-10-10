@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "when name is not present" do
+    before { @category.name = nil }
+    it { should_not be_valid }
+  end
 end
