@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   respond_to :html, :json, :xml
 
   def index
-    # if params.has_key?("search")
+    #
     #render :file => '/categories/index', :layout => true
     logger.info "items index.................................."
     #redirect_to categories_path :layout => "true", :format => 'html', :search => params[:search]
@@ -22,15 +22,18 @@ class ItemsController < ApplicationController
     end
 =end
     #render :file => '/categories/index', :layout => true
-    logger.info "redirect.................................."
-=begin
+    #logger.info "redirect.................................."
+
+    if params.has_key?("search")
     elsif params.has_key?("category_id") and params.has_key?("subcategory_id")
       @items = Item.where("category_id = ? AND subcategory_id = ?", params[:category_id], params[:subcategory_id])
     end
+=begin
     respond_to do | format |
       format.js
     end
 =end
+
   end
 
   def show

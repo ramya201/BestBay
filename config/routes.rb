@@ -1,5 +1,9 @@
 BestBay::Application.routes.draw do
 
+  get "seller/index"
+
+  get "seller/show"
+
   get "dashboard/index"
 
   get "dashboard/show"
