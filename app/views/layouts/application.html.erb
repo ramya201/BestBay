@@ -33,7 +33,7 @@
 
       <%= link_to "BestBay", '/welcome/index', id: "logo", class: "brand"%>
 
-      <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+      <%= form_tag categories_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
           <div class="nav">
             <%= text_field_tag :search, params[:search], :id => "search_keyword", :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
             <button type="submit" id="search_submit" style="visibility: hidden;" class="btn">Search</button>

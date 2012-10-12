@@ -23,8 +23,8 @@ $(function() {
         return false;
     });
     $("#items_search input").keyup(function() {
-        //alert('searchval = '+$("#search").val());
-        $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
+        // alert('searchval = '+$("#search_keyword").val());
+        $.get($("#items_search").attr("action"), $("#search_keyword").serialize(), null, "script");
         return false;
     });
     /*$(window).load(function () {

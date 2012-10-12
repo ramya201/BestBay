@@ -24,7 +24,7 @@
                            subcategories = Subcategory.find_all_by_category_id(category.id)
                            subcategories.each do |subcat|
                         %>
-                            <tr><td><%= link_to subcat.name , items_path(:subcategory_id => subcat.id,:category_id => subcat.category_id),:remote=>true, :style=>'font-size:small;', :class => "css_class"%></td></tr>
+                            <tr><td><%= link_to subcat.name , categories_path(:subcategory_id => subcat.id,:category_id => subcat.category_id),:remote=>true, :style=>'font-size:small;', :class => "css_class"%></td></tr>
                         <% end %>
                       </table>
 
@@ -37,7 +37,7 @@
 
           </td>
           <td style="width: 800px;vertical-align: top;">
-            <div id="index" style="width: 100%;vertical-align: top;"> <%= render 'items/item' %></div>
+            <div id="item_list" style="width: 100%;vertical-align: top;"> <%= render 'categories/item' %></div>
           </td>
         </tr>
 
