@@ -49,22 +49,18 @@
     <div class="container">
 
       <%= link_to "BestBay", '/welcome/index', id: "logo", class: "brand"%>
-      <div style="float: left;margin-left: 30px;padding-left: 50px;">
-
-        <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
-            <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
-        <% end %>
-        </div>
+      <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
+      <% end %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "My Account",    '/courses' %></li>
-          <li><%= link_to "Help",    '/notes' %></li>
+          <li><%= link_to "My Account", '/seller/index' %></li>
+          <li><%= link_to "Help",    '/welcome/index' %></li>
         </ul>
       </nav>
     </div>
   </div>
 </header>
-
 
 <div class="container" style="width: 95%;margin-left: 40px;">
   <%= yield %>
@@ -73,8 +69,8 @@
     <nav>
       <small class="nav pull-left">&copy; 2012 Team Juggernauts</small>
     </nav>
-
   </footer>
+
 </div>
 
 </body>

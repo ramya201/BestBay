@@ -28,7 +28,7 @@ $(function() {
         return false;
     });
     /*$(window).load(function () {
-        $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
-        return false;
-    });*/
+     $.get($("#items_search").attr("action"), $("#items_search").serialize(), null, "script");
+     return false;
+     });*/
 });

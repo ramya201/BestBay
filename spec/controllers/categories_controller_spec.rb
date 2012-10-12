@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe CategoriesController do
 
+=begin
   describe "GET 'index'" do
     it "returns http success" do
       get 'index'
@@ -15,6 +16,7 @@ describe CategoriesController do
       response.should be_success
     end
   end
+=end
 
 =begin
   describe "GET Index" do
