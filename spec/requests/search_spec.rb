@@ -11,4 +11,5 @@ describe "Item Search" do
     "#{uri.path}?#{uri.query}".should match("/items")
     page.should have_content('Kodak')
   end
+
 end
