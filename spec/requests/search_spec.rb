@@ -8,7 +8,7 @@ describe "Item Search" do
     fill_in('search_keyword', :with => 'Kodak')
     click_button "search_submit"
     uri = URI.parse(current_url)
-    "#{uri.path}?#{uri.query}".should match("/items")
+    "#{uri.path}?#{uri.query}".should match("/categories")
     page.should have_content('Kodak')
   end
 

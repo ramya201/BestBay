@@ -4,10 +4,10 @@ describe "CategoriesData" do
   describe "Display Metadata" do
 
     it "should display category metadata from database " do
-      category = FactoryGirl.create(:category, :name => "Books")
+      category = FactoryGirl.create(:category, :name => "Electronics2")
       visit "/welcome/index"
       click_link "buy_button"
-      page.should have_content('Books')
+      page.should have_content('Electronics2')
     end
 
   end
