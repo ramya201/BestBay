@@ -17,27 +17,10 @@
           padding-top: 60px;
           padding-bottom: 40px;
           width: 100%;
-
       }
       #silverlightControlHost {
           height: 450px;
           width: 100%;
-
-      }
-      button.image1 {
-          background-image: url('<%= image_path('BuyBtn.png') %>');
-          background-repeat: no-repeat;
-          height: 95px;
-          width: 184px;
-          border: black;
-      }
-      button.image2 {
-          background-image: url('<%= image_path('SellBtn.png') %>');
-          background-repeat: no-repeat;
-          height: 95px;
-          width: 184px;
-          border-style: none;
-          outline-style: none;
       }
   </style>
   <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -49,9 +32,14 @@
     <div class="container">
 
       <%= link_to "BestBay", '/welcome/index', id: "logo", class: "brand"%>
+
       <%= form_tag items_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
-          <%= text_field_tag :search, params[:search], :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
+          <div class="nav">
+            <%= text_field_tag :search, params[:search], :id => "search_keyword", :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
+            <button type="submit" id="search_submit" style="visibility: hidden;" class="btn">Search</button>
+          </div>
       <% end %>
+
       <nav>
         <ul class="nav pull-right">
           <li><%= link_to "My Account", '/seller/index' %></li>
@@ -64,6 +52,7 @@
 
 <div class="container" style="width: 95%;margin-left: 40px;">
   <%= yield %>
+  <br/><br/>
 
   <footer class="footer" style="color: #a9a9a9;">
     <nav>
