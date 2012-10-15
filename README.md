@@ -5,3 +5,6 @@ Implemented stories:
 * A user should be able to view the details of a selected item
 * A buyer should be able to view a catalog of items on sale
 * A user should be able to search for a particular item
+
+Tests:
+31 examples, 0 failures, 31 passed

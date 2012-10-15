@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   belongs_to :category
   belongs_to :subcategory
   belongs_to :brand
+  validates_presence_of :name,:category_id,:subcategory_id,:brand_id
 
   def self.search(search)
     if search
