@@ -50,7 +50,7 @@ gem 'jquery-rails'
 gem 'factory_girl_rails' 
 gem 'rspec-rails' 
 gem 'devise' 
-gem "cart", "~> 0.0.4"
+#gem "cart", "~> 0.0.4"
 #gem 'ruby-debug19'
 #gem 'ruby-debug-base19x'
 #gem 'ruby-debug-ide' #'0.4.6'

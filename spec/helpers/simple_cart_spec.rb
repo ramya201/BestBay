@@ -1,6 +1,6 @@
 require "rspec"
 require "spec_helper"
-require_relative "../../app/helpers/simple_cart"
+#require_relative "../../app/helpers/simple_cart"
 
 
 describe Cart do

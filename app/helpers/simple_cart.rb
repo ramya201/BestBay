@@ -1,5 +1,4 @@
 require "ostruct"
-require "cart/config"
 
 class CartItem < OpenStruct
 
