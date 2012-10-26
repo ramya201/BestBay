@@ -1,8 +1,6 @@
 <%= form_tag items_path, :method => 'get' do %>
 
     <div id="items"><%= render 'items/item' %></div>
-
-    <%= link_to 'init', '/cart/initialize_cart'%>
-    
+      <!-- TODO remove this; this never executes -->
 
 <% end %>

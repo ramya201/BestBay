@@ -10,9 +10,17 @@ BestBay::Application.routes.draw do
 
   get "welcome/index"
 
+
   root :to => 'welcome#index'
 
   resources :items
+
+  resources :cart do
+    member do
+      get 'add'
+      get 'get'
+    end
+  end
 
   resources :items do
     member do
