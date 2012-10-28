@@ -1,12 +1,11 @@
 require "rspec"
 require "spec_helper"
-#require_relative "../../app/helpers/simple_cart"
+require "cart/simple_cart"
 
 
 describe Cart do
   before(:each) do
     @cart = Cart.new
-    10.times { @cart.items.push(FactoryGirl.build(:cartitem)) }
     @item=FactoryGirl.build(:item)
     @item.id=123123
     @cart.add(@item)
@@ -15,7 +14,7 @@ describe Cart do
   describe "load cart items" do
     it "should load serialized items" do
       loaded_cart = Cart.load(@cart.save)
-      loaded_cart.items.should eql(@cart.items)
+      loaded_cart.items.to_json.should eql(@cart.items.to_json)
     end
 
     it "should return empty cart if first (and only) argument is nil" do
@@ -28,7 +27,7 @@ describe Cart do
       Cart.new.items.should be_empty
     end
 
-    it "should be array of products" do
+    it "should be array of CartItems" do
       @cart.items.all? { |item| item.kind_of?(CartItem) }.should be_true
     end
   end
@@ -38,35 +37,51 @@ describe Cart do
       @cart.save.should be_kind_of(String)
     end
 
-    it "should be regular JSON string" do
-      JSON.parse(@cart.save).should_not raise_error
-    end
   end
 
   describe "#add" do
-    it "should add one product into cart by default" do
-      expect {@cart.add(@item)}.to change {@cart.find(@item).count}.by(1)
+    it "should add one item into cart by default" do
+      @cart.items = Cart.load(@cart.save).items
+      expect { @cart.add(@item)
+      @cart.save
+      }.to change {@cart.find_item(@item)["count"]}.by(1)
     end
-    it "should add more product into cart's items when optional argument given" do
-      expect {@cart.add(@item,10)}.to change {cart.find(@item).count}.by(10)
+    it "should add more items into cart's items when optional argument given" do
+      @cart.items = Cart.load(@cart.save).items
+      expect { @cart.add(@item,10)
+      @cart.save
+      }.to change {@cart.find_item(@item)["count"]}.by(10)
     end
   end
 
   describe "#remove" do
     it "should remove some number of item from cart when optional argument given" do
-      expect {@cart.remove(@item,5)}.to change {cart.find(@item).count}.by(-5)
+      @cart.items = Cart.load(@cart.save).items
+      @cart.add(@item)
+      @cart.save
+      @cart.add(@item)
+      @cart.save
+      @cart.add(@item)
+      @cart.save
+      @cart.add(@item)
+      @cart.save
+      expect {@cart.remove(@item,2)}.to change {@cart.find_item(@item)["count"]}.by(-2)
     end
+
     it "should remove the item from the cart by default" do
-      expect {@cart.remove(@item)}.to change {cart.find(@item)}.to(nil)
+      @cart.items = Cart.load(@cart.save).items
+      @cart.add(@item)
+      @cart.save
+      expect {@cart.remove(@item)}.to change {@cart.find_item(@item)}.to(nil)
     end
   end
 
   describe "#empty?" do
-    it "should returns true if there aren't any items" do
-      Cart.new.empty?.should_be true
+    it "should return true if there aren't any items" do
+      Cart.new.empty?.should be_true
     end
 
-    it "should returns false if there aren't any items" do
+    it "should return false if there aren't any items" do
       @cart.should_not be_empty
     end
   end
