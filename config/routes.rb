@@ -19,6 +19,7 @@ BestBay::Application.routes.draw do
     member do
       get 'add'
       get 'get'
+      get 'index'
     end
   end
 
