@@ -20,7 +20,6 @@ describe CartHelper do
     json_string = "[{\"table\":{\"cart_item_id\":" + item.id.to_s + " ,\"count\":2},\"modifiable\":true}]"
     @cart.items = JSON.parse(json_string)
     expect { add_to_cart(item.id, 2) }.to change { get_total_item_count }.by(2)
-    puts get_total_item_count
 =begin
     count_before = get_total_item_count
     add_to_cart(1, 2)
