@@ -8,9 +8,9 @@
 	<tr>
 		<td><%= image_tag(item.image,:alt => "Item Image",:width => "180px",:height => "150px") %> </td>
 		<td><%= link_to item.name, item_path(item) %></td>
-		<td><%= intant_price=item.instant_price %></td>
+		<td><%= instant_price=item.instant_price.to_i %></td>
 		<td><%= count=cart_item.fetch("table").fetch("count")%></td>
-		<td><%= intant_price*count%></td>
+		<td><%= instant_price*count%></td>
 	</tr>
 	<%end%>
 </table>
