@@ -11,6 +11,11 @@ class CartController < ApplicationController
 		redirect_to :controller => "items", :action => "show"
 	end
 
+  def remove
+    remove_from_cart(Item.find(params[:id]))
+    redirect_to :controller => "cart", :action => "index"
+  end
+
 	def index
 	end
 end

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <h2><%= current_user.first_name %>'s Dashboard</h2>     <br/>
+=======
+<h2><%= current_user.first_name %> Dashboard</h2>     <br/>
+>>>>>>> 46238856f09e5fff6d1aada7d3bde0ff5bc0b2d7
 
 <div class="container-fluid">
   <div class="row-fluid">
