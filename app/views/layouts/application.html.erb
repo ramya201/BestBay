@@ -11,7 +11,7 @@
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="css/bootstrap.css" rel="stylesheet">                     <!-- providing bootstrap styles -->
   <style type="text/css">
       body {
           padding-top: 60px;
@@ -31,9 +31,9 @@
   <div class="navbar-inner">
     <div class="container">
 
-      <%= link_to "BestBay", '/categories/index', id: "logo", class: "brand"%>
+      <%= link_to "BestBay", '/categories/index', id: "logo", class: "brand"%>         <!-- lets user come to main page from any page -->
 
-      <%= form_tag categories_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>
+      <%= form_tag categories_path, :method => 'get', :id => "items_search", :class => "navbar-search pull-left" do %>     <!-- gives search bar on each page -->
           <div class="nav">
             <%= text_field_tag :search, params[:search], :id => "search_keyword", :class => "search-query", :placeholder=>"Search", :style =>"width:450px;" %>
             <button type="submit" id="search_submit" style="visibility: hidden;" class="btn">Search</button>
@@ -41,7 +41,7 @@
       <% end %>
 
       <nav>
-        <ul class="nav pull-right">
+        <ul class="nav pull-right">                                         <!-- gives the user navigation options based on wether he is signed in or not-->
           <li><%= link_to "Cart ("+@_controller.get_total_item_count.to_s+")", cart_index_path, {id: 'review_cart'} %></li>
           <% if (!user_signed_in?) %>
               <li><%= link_to "Sign In", new_user_session_path %></li>

@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
 
   validates_presence_of :name,:category_id,:subcategory_id,:brand_id
 
-  def self.search(search)
+  def self.search(search)                                #search an item
     if search
       where('name LIKE ?', "%#{search}%")
     else

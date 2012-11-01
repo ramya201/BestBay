@@ -7,16 +7,16 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def show
+  def show                                    #show item
     @item=Item.find(params[:id])
 
   end
 
-  def add_item_to_cart()
+  def add_item_to_cart()                     #adds items to cart
     @items_in_cart = get_all_items_in_cart
   end
 
-  def new
+  def new                                   #creates new item
     @item = Item.new
     @subcategories = Subcategory.all
   end

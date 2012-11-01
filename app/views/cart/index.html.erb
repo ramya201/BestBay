@@ -2,6 +2,7 @@
 <hr/>
 <h3>You have <%= @_controller.get_total_item_count.to_s%> items in your cart</h3>
 <hr/>
+<% total = 0 %>
 <table class="table table-bordered table-condensed" style="width:100%">
 	<% @_controller.get_all_items_in_cart.each do |cart_item|%>
 	<% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
@@ -12,5 +13,13 @@
 		<td><%= count=cart_item.fetch("table").fetch("count")%></td>
 		<td><%= instant_price*count%></td>
 	</tr>
+      <% total = total + instant_price*count %>
 	<%end%>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><%= "Total = #{total}" %></td>
+    </tr>
 </table>
