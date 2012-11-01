@@ -35,6 +35,10 @@ BestBay::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d9855ad057539eb1356256d1ee867d1a22e71e78
   Paperclip.options[:command_path] = "/usr/local/bin"
 
   #for devise

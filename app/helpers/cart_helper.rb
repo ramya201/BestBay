@@ -29,6 +29,7 @@ module CartHelper
   # removes an item from the cart
   # items are flattened after removal
   def remove_from_cart(order_item)
+    self.initialize_cart unless @cart
     @cart.remove(order_item)
     self.save_cart
   end

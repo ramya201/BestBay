@@ -1,6 +1,10 @@
 class CategoriesController < ApplicationController
+<<<<<<< HEAD
 
 def index
+=======
+  def index                                                                #shows items based on the category and sub category
+>>>>>>> 72f38be05b85599c6f941d7173112d6ec8e9032f
     @categories = Category.all
     if params.has_key?("search")
           @items = Item.search(params[:search])
@@ -11,7 +15,7 @@ def index
     end
   end
 
-  def show
+  def show                                      #shows items
     respond_to do |format|
       format.html # index.html
     end

@@ -9,18 +9,24 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def show
+  def show                                    #show item
     @item=Item.find(params[:id])
 
   end
 
-  def add_item_to_cart()
+  def add_item_to_cart()                     #adds items to cart
     @items_in_cart = get_all_items_in_cart
   end
 
+<<<<<<< HEAD
   def new
       @item = Item.new
       @subcategories = Subcategory.all
+=======
+  def new                                   #creates new item
+    @item = Item.new
+    @subcategories = Subcategory.all
+>>>>>>> 72f38be05b85599c6f941d7173112d6ec8e9032f
   end
 
   def edit
