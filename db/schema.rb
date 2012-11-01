@@ -11,11 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20121029181530) do
-=======
-ActiveRecord::Schema.define(:version => 20121031212427) do
->>>>>>> e62381e70b8e78edc62b0f2afd2731c7cca348c7
+ActiveRecord::Schema.define(:version => 20121101062600) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
@@ -64,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20121031212427) do
   add_index "subcategories", ["name"], :name => "index_subcategories_on_name", :unique => true
 
   create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "password"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "image"
