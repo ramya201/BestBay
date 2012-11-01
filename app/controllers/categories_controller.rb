@@ -5,6 +5,8 @@ class CategoriesController < ApplicationController
           @items = Item.search(params[:search])
     elsif params.has_key?("category_id") and params.has_key?("subcategory_id")
       @items = Item.where("category_id = ? AND subcategory_id = ?", params[:category_id], params[:subcategory_id])
+    elsif params.has_key?("other_param")
+      @items = Item.find_all_by_user_id(current_user.id)
     end
   end
 
