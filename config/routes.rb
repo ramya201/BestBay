@@ -1,5 +1,7 @@
 BestBay::Application.routes.draw do
 
+  devise_for :users
+
   get "seller/index"
 
   get "seller/show"
@@ -10,15 +12,26 @@ BestBay::Application.routes.draw do
 
   get "welcome/index"
 
+<<<<<<< HEAD
   resources :items do
     member do
       get 'update_subcategories'
     end
   end
+=======
+>>>>>>> e62381e70b8e78edc62b0f2afd2731c7cca348c7
 
   root :to => 'welcome#index'
 
   resources :items
+
+  resources :cart do
+    member do
+      get 'add'
+      get 'get'
+      get 'index'
+    end
+  end
 
   resources :items do
     member do

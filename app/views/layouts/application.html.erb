@@ -42,6 +42,7 @@
 
       <nav>
         <ul class="nav pull-right">
+          <li><%= link_to "Cart ("+@_controller.get_total_item_count.to_s+")", cart_index_path, {id: 'review_cart'} %></li>
           <li><%= link_to "My Account", '/seller/index' %></li>
           <li><%= link_to "Help",    '/welcome/index' %></li>
         </ul>
@@ -53,6 +54,9 @@
 <div class="container" style="width: 95%;margin-left: 40px;">
   <%= yield %>
   <br/><br/>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
 
   <footer class="footer" style="color: #a9a9a9;">
     <nav>

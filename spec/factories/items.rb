@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :item do
-    name ""
+    name "Camera"
     description ""
     image ""
     start_price 1

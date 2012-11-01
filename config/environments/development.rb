@@ -35,5 +35,10 @@ BestBay::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+<<<<<<< HEAD
   Paperclip.options[:command_path] = "/usr/local/bin"
+=======
+  #for devise
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+>>>>>>> e62381e70b8e78edc62b0f2afd2731c7cca348c7
 end

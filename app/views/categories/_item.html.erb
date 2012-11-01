@@ -5,7 +5,6 @@
 
     <% if @items.nil?
          @items = Item.last(3)
-         puts "Popular Items"
        end
 
        @items.each do |item| %>

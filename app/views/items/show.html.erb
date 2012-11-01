@@ -1,1 +1,4 @@
 <div id="item_detail"><%= render 'item_detail' %></div>
+
+<%= link_to 'Add to cart', { :controller => "cart", :action => "add", :item_obj => @item.id, :qty => 1 }, :class => "btn btn-primary", :method => "get" %>
+
