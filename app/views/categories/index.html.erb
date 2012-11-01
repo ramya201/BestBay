@@ -34,7 +34,18 @@
               </div>
 
             </div>
+             <br/>
+            <div class="tabbable tabs-left" style="width:100%;">
+              <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 
+                <li> <%= link_to 'Sell Item', new_item_path, :remote => true %></li>
+                <li> <a href='#'>Current Auction/Sale</a></li>
+                <li> <a href='#'>Sale History</a></li>
+                <li> <a href='#'>Purchase History</a></li>
+
+              </ul>
+
+            </div>
           </td>
           <td style="width: 800px;vertical-align: top;">
             <div id="item_list" style="width: 100%;vertical-align: top;"> <%= render 'categories/item' %></div>

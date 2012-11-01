@@ -13,7 +13,7 @@
   </tr>
   <tr>
     <th>Image</th>
-    <td><img src='<%= image_path(@item.image)%>' style="width: 200px;height: 200px;"></td>
+    <td><%= image_tag @item.pic.url(:medium) %></td>
   </tr>
   <tr>
     <th>Start Price</th>

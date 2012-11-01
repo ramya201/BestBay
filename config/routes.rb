@@ -12,6 +12,14 @@ BestBay::Application.routes.draw do
 
   get "welcome/index"
 
+<<<<<<< HEAD
+  resources :items do
+    member do
+      get 'update_subcategories'
+    end
+  end
+=======
+>>>>>>> e62381e70b8e78edc62b0f2afd2731c7cca348c7
 
   root :to => 'welcome#index'
 
