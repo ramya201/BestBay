@@ -22,6 +22,7 @@ BestBay::Application.routes.draw do
       get 'add'
       get 'get'
       get 'index'
+      get 'remove'
     end
   end
 
