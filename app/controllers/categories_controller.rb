@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-  def index
+
+def index
     @categories = Category.all
     if params.has_key?("search")
           @items = Item.search(params[:search])
@@ -14,6 +15,11 @@ class CategoriesController < ApplicationController
     respond_to do |format|
       format.html # index.html
     end
+  end
+
+  def new
+    @item = Item.new
+    @subcategories = Subcategory.all
   end
 
 end

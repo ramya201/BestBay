@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
 
   include CartHelper
 
+  before_filter :authenticate_user!
+
   def index
   end
 
@@ -17,8 +19,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
-    @subcategories = Subcategory.all
+      @item = Item.new
+      @subcategories = Subcategory.all
   end
 
   def edit
@@ -41,6 +43,15 @@ class ItemsController < ApplicationController
 
   def search
     respond_with :html
+  end
+
+  def authenticate_user
+    if request.xhr?
+      flash.now[:alert] = 'Error'
+      render :js => "window.location = '/users/sign_up'"
+    else
+      authenticate_user!
+    end
   end
 
 end
