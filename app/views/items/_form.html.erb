@@ -1,0 +1,31 @@
+<%= form_for @item, :html => { :multipart => true } do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name,:size=>"80x1" %>
+
+    <%= f.label :description %>
+    <%= f.text_area :description, :size=>"80x12"%>
+
+    <%= f.label :pic %>
+    <%= f.file_field :pic %>
+
+    <%= f.label :instant_price %>
+    <%= f.text_field :instant_price,:size=>"80x1" %>
+
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity, :size=>"80x1" %>
+
+    <%= f.label :user_id %>
+    <%= f.text_field :user_id, :size=>"80x1" %>
+
+    <%= f.label :brand_id %>
+    <%= f.collection_select :brand_id, Brand.all.sort(), :id, :name, :class => "dropdown-menu", :prompt => "Select a brand"%>
+
+    <%= f.label :category_id %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt=>"Select Category"},{:id =>"category_select"})%>
+
+    <%= f.label :subcategory_id %>
+    <%= f.collection_select(:subcategory_id, @subcategories, :id, :name,{:prompt => "Select a Subcategory"},{:id=>"subcategory_select"}) %>
+    <br>
+    <%= f.submit "Sell Item",class: "btn btn-large btn-primary" %>
+<% end %>

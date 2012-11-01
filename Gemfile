@@ -49,7 +49,8 @@ gem 'jquery-rails'
 #suggested gems by Todd
 gem 'factory_girl_rails' 
 gem 'rspec-rails' 
-gem 'devise' 
+gem 'devise'
+gem "paperclip", "~> 3.0"
 #gem 'ruby-debug19'
 #gem 'ruby-debug-base19x'
 #gem 'ruby-debug-ide' #'0.4.6'
