@@ -48,14 +48,12 @@ gem 'jquery-rails'
 
 #suggested gems by Todd
 gem 'factory_girl_rails' 
-gem 'rspec-rails' 
-<<<<<<< HEAD
+gem 'rspec-rails'
 gem 'devise'
 gem "paperclip", "~> 3.0"
-=======
+
 gem 'devise' 
-#gem "cart", "~> 0.0.4"
->>>>>>> e62381e70b8e78edc62b0f2afd2731c7cca348c7
+
 #gem 'ruby-debug19'
 #gem 'ruby-debug-base19x'
 #gem 'ruby-debug-ide' #'0.4.6'
