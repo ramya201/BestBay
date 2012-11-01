@@ -1,5 +1,7 @@
 BestBay::Application.routes.draw do
 
+  devise_for :users
+
   get "seller/index"
 
   get "seller/show"
