@@ -18,15 +18,9 @@ class ItemsController < ApplicationController
     @items_in_cart = get_all_items_in_cart
   end
 
-<<<<<<< HEAD
-  def new
-      @item = Item.new
-      @subcategories = Subcategory.all
-=======
   def new                                   #creates new item
     @item = Item.new
     @subcategories = Subcategory.all
->>>>>>> 72f38be05b85599c6f941d7173112d6ec8e9032f
   end
 
   def edit
@@ -35,6 +29,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    @item.user = current_user
 
     respond_to do |format|
       if @item.save
@@ -51,13 +46,8 @@ class ItemsController < ApplicationController
     respond_with :html
   end
 
-  def authenticate_user
-    if request.xhr?
-      flash.now[:alert] = 'Error'
-      render :js => "window.location = '/users/sign_up'"
-    else
-      authenticate_user!
-    end
+  def destroy
+
   end
 
 end

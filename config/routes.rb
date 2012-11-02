@@ -48,18 +48,23 @@ BestBay::Application.routes.draw do
 
   get "subcategories/show"
 
+
+
   get "categories/index"
-  get "categories/show"
 
-
-
-
+  resources :categories do
+    member do
+      get 'seller_index'
+    end
+  end
 
   resources :subcategories do
     member do
       get 'view_subcategory'
     end
   end
+
+
 
   resources :categories do
     resources :subcategories do

@@ -1,3 +1,4 @@
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2" style="width:100%;">
@@ -38,7 +39,7 @@
               <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 
                 <li> <%= link_to 'Sell Item', new_item_path, :remote => true %></li>
-                <li> <%= link_to 'Current Auction/Sale', items_path, :other_param=>"Sell", :remote => true %></li>
+                <li> <%= link_to 'Current Auction/Sale', seller_index_category_path(:id => current_user.id), :remote => true %></li>
                 <li> <a href='#'>Sale History</a></li>
                 <li> <a href='#'>Purchase History</a></li>
 

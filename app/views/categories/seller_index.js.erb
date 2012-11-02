@@ -1,0 +1,1 @@
+$("#item_list").html("<%= escape_javascript( render( :partial => "categories/item", :locals => {:items => @items, :user_type => @user_type}))%>" );

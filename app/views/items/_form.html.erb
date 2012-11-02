@@ -9,14 +9,14 @@
     <%= f.label :pic %>
     <%= f.file_field :pic %>
 
+    <%= f.label :sale_type %>
+    <%= f.select(:sale_type,["Instant Sale","Auction"])%>
+
     <%= f.label :instant_price %>
     <%= f.text_field :instant_price,:size=>"80x1" %>
 
     <%= f.label :quantity %>
     <%= f.text_field :quantity, :size=>"80x1" %>
-
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id, :size=>"80x1" %>
 
     <%= f.label :brand_id %>
     <%= f.collection_select :brand_id, Brand.all.sort(), :id, :name, :class => "dropdown-menu", :prompt => "Select a brand"%>
