@@ -19,7 +19,14 @@
               <td><b>Sale Type:  </b><%= item.sale_type %></td>
             </tr>
             <tr>
-              <td><b>Price:  $</b><%= item.start_price %></td>
+              <td><b>Price:  $</b><%= item.instant_price %></td>
+            </tr>
+            <tr>
+              <td>
+            <%= if (@user_type == "Seller")
+          link_to 'Edit Item', edit_item_path, :remote => true
+                end %>
+              </td>
             </tr>
           </table>
         </tr>

@@ -4,6 +4,8 @@ class ItemsController < ApplicationController
 
   include CartHelper
 
+  before_filter :authenticate_user!
+
   def index
   end
 
@@ -27,6 +29,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
+    @item.user = current_user
 
     respond_to do |format|
       if @item.save
@@ -41,6 +44,10 @@ class ItemsController < ApplicationController
 
   def search
     respond_with :html
+  end
+
+  def destroy
+
   end
 
 end
