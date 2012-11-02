@@ -21,13 +21,6 @@
             <tr>
               <td><b>Price:  $</b><%= item.instant_price %></td>
             </tr>
-            <tr>
-              <td>
-            <%= if (@user_type == "Seller")
-          link_to 'Edit Item', edit_item_path, :remote => true
-                end %>
-              </td>
-            </tr>
           </table>
         </tr>
     <%

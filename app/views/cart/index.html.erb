@@ -5,8 +5,8 @@
 <% total = 0 %>
 <table>
 
-      <tr style="background-color: #33CCCC;">
-        <th>Image</th>
+      <tr style="background-color: #262626;color: #bbbbbb;">
+
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
@@ -16,7 +16,6 @@
   <% @_controller.get_all_items_in_cart.each do |cart_item|%>
       <% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
       <tr>
-        <td style="vertical-align: middle; text-align: center;"><%= image_tag(item.image,:alt => "Item Image",:width => "180px",:height => "150px") %> </td>
         <td style="vertical-align: middle; text-align: center;"><%= link_to item.name, item_path(item) %></td>
         <td style="vertical-align: middle; text-align: center;"><%= instant_price=item.instant_price.to_i %></td>
         <td style="vertical-align: middle; text-align: center;"><%= count=cart_item.fetch("table").fetch("count")%></td>

@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
 
   include CartHelper
 
-  before_filter :authenticate_user!
-
   def index
   end
 
@@ -20,11 +18,24 @@ class ItemsController < ApplicationController
 
   def new                                   #creates new item
     @item = Item.new
-    @subcategories = Subcategory.all
   end
 
-  def edit
+  def edit                                   #edits details of item posted by the current user
     @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+
+    respond_to do |format|
+      if @item.update_attributes(params[:item])
+        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def create

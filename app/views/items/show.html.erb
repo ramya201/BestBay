@@ -1,4 +1,11 @@
-<div id="item_detail"><%= render 'item_detail' %></div>
+<div id="item_list"><%= render 'item_detail' %>
 
-<%= link_to 'Add to cart', { :controller => "cart", :action => "add", :item_obj => @item.id, :qty => 1 }, :class => "btn btn-primary", :method => "get" %>
+<%= if @item.user_id == current_user.id
+      link_to 'Edit Item', edit_item_path(@item), class: "btn btn-primary",:remote=>true
+  end %>
+  </div>
+<%= if @item.user_id != current_user.id
+link_to 'Add to cart', { :controller => "cart", :action => "add", :item_obj => @item.id, :qty => 1 }, :class => "btn btn-primary", :method => "get"
+end %>
+
 

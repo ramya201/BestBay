@@ -21,7 +21,10 @@
       #silverlightControlHost {
           height: 450px;
           width: 100%;
-      }
+      }textarea {
+           width: 450px;
+           height: 150px;
+       }
   </style>
   <link href="css/bootstrap-responsive.css" rel="stylesheet">
 
@@ -44,10 +47,9 @@
           <li><%= link_to "Cart ("+@_controller.get_total_item_count.to_s+")", cart_index_path, {id: 'review_cart'} %></li>
           <% if (!user_signed_in?) %>
               <li><%= link_to "Sign In", user_session_path %></li>
+              <li><%= link_to "Sell", user_session_path %></li>
           <% end %>
-          <% if (user_signed_in?)   %>
-
-              <li><%= link_to current_user.first_name + "'s Dashboard", '/seller/index' %></li>
+          <% if (user_signed_in?) %>
               <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %> </li>
           <% end %>
         </ul>
@@ -60,10 +62,10 @@
   <%= yield %>
   <br/><br/>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<!--<p class="notice" style="color:#969696;"><%= notice %></p>
+  <p class="alert" style="color:#969696;"><%= alert %></p>-->
 
-  <footer class="footer" style="color: #a9a9a9;">
+  <footer class="footer" style="color: #969696;">
     <nav>
       <small class="nav pull-left">&copy; 2012 Team Juggernauts</small>
     </nav>

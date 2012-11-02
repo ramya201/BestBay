@@ -35,13 +35,13 @@
             </div>
              <br/>
             <% if(user_signed_in?) %>
-            <h3 style="color: #262626;">Manage Sale</h3>
+            <h3 style="color: #262626;"><%= current_user.first_name.to_s + "\'s Dashboard"%></h3>
 
             <div class="tabbable tabs-left" style="width:100%;">
               <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 
                 <li> <%= link_to 'Sell Item', new_item_path, :remote => true %></li>
-                <li> <a href="#">Current Items</a></li>
+                <li> <%= link_to 'Current Sale/Auction',seller_index_category_path(:id=>current_user.id), :remote=>true %></li>
                 <li> <a href='#'>Sale History</a></li>
                 <li> <a href='#'>Purchase History</a></li>
 
@@ -50,7 +50,7 @@
             </div>
                 <% end %>
           </td>
-          <td style="width: 800px;vertical-align: top;">
+          <td style="width: 600px;vertical-align: top;">
             <div id="item_list" style="width: 100%;vertical-align: top;"> <%= render 'categories/item' %></div>
           </td>
         </tr>

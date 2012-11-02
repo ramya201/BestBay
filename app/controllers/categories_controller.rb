@@ -18,6 +18,5 @@ class CategoriesController < ApplicationController
 
   def seller_index
           @items = Item.find_all_by_user_id(params[:id])
-          @user_type = "Seller"
   end
   end

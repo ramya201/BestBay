@@ -1,31 +1,47 @@
 <%= form_for @item, :html => { :multipart => true } do |f| %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name,:size=>"80x1" %>
-
-    <%= f.label :description %>
-    <%= f.text_area :description, :size=>"80x12"%>
-
-    <%= f.label :pic %>
-    <%= f.file_field :pic %>
-
-    <%= f.label :sale_type %>
-    <%= f.select(:sale_type,["Instant Sale","Auction"])%>
-
-    <%= f.label :instant_price %>
-    <%= f.text_field :instant_price,:size=>"80x1" %>
-
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity, :size=>"80x1" %>
-
-    <%= f.label :brand_id %>
-    <%= f.collection_select :brand_id, Brand.all.sort(), :id, :name, :class => "dropdown-menu", :prompt => "Select a brand"%>
-
-    <%= f.label :category_id %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt=>"Select Category"},{:id =>"category_select"})%>
-
-    <%= f.label :subcategory_id %>
-    <%= f.collection_select(:subcategory_id, @subcategories, :id, :name,{:prompt => "Select a Subcategory"},{:id=>"subcategory_select"}) %>
-    <br>
-    <%= f.submit "Sell Item",class: "btn btn-large btn-primary" %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :name %>
+          <%= f.text_field :name,:size=>"80x1" %>
+        </td>
+        <td style="vertical-align: top;">
+          <%= f.label :pic %>
+          <%= f.file_field :pic %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :quantity %>
+          <%= f.text_field :quantity, :size=>"80x1" %>
+        </td>
+        <td> <%= f.label :instant_price %>
+          <%= f.text_field :instant_price,:size=>"80x1" %></td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :sale_type %>
+          <%= f.select(:sale_type,["Instant Sale","Auction"])%>
+        </td>
+        <td>
+          <%= f.label :brand_id %>
+          <%= f.collection_select :brand_id, Brand.all.sort(), :id, :name, :class => "dropdown-menu", :prompt => "Select a brand"%>
+        </td>
+      </tr>
+      <tr>
+         <td>
+           <%= f.label :category_id %>
+           <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt=>"Select Category"},{:id =>"category_select"})%>
+         </td>
+        <td>
+          <%= f.label :subcategory_id %>
+          <%= f.collection_select(:subcategory_id, Subcategory.all, :id, :name,{:prompt => "Select a Subcategory"},{:id=>"subcategory_select"}) %>
+        </td>
+      </tr>
+    </table>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    <div class="actions">
+      <%= f.submit :class=>"btn btn-primary" %>
+    </div>
 <% end %>
