@@ -34,7 +34,9 @@
 
             </div>
              <br/>
+            <% if(user_signed_in?) %>
             <h3 style="color: #262626;">Manage Sale</h3>
+
             <div class="tabbable tabs-left" style="width:100%;">
               <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
 
@@ -46,6 +48,7 @@
               </ul>
 
             </div>
+                <% end %>
           </td>
           <td style="width: 800px;vertical-align: top;">
             <div id="item_list" style="width: 100%;vertical-align: top;"> <%= render 'categories/item' %></div>
