@@ -18,6 +18,8 @@ class ItemsController < ApplicationController
 
   def new                                   #creates new item
     @item = Item.new
+    @categories=Category.all
+    @subcategories=[]
   end
 
   def edit                                   #edits details of item posted by the current user
@@ -59,6 +61,14 @@ class ItemsController < ApplicationController
 
   def destroy
 
+  end
+
+  def subcategories_by_category
+    if params[:id].present?
+      @subcategories = Subcategory.find_all_by_category_id(params[:id]).map { |sub| [ sub.name , sub.id] }
+    else
+      @subcategories = []
+    end
   end
 
 end
