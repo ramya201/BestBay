@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
 
   respond_to :html, :json, :xml
-
   include CartHelper
 
   def index
@@ -24,6 +23,8 @@ class ItemsController < ApplicationController
 
   def edit                                   #edits details of item posted by the current user
     @item = Item.find(params[:id])
+    @categories=Category.all
+    @subcategories=[]
   end
 
   def update
@@ -42,17 +43,19 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(params[:item])
-    @item.user = current_user
+    @item.user = User.find(params[:user_id])
 
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item }
         format.json { render json: @item, status: :created, location: @item }
       else
-        #format.html { render action: "new" }
-        #format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.html { render action: "new" }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+
     end
+
   end
 
   def search

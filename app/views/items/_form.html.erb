@@ -18,6 +18,10 @@
     <td> <%= f.label :instant_price %>
       <%= f.text_field :instant_price,:size=>"80x1" %></td>
     </tr>
+
+
+
+
     <tr>
       <td>
         <%= f.label :sale_type %>
@@ -39,8 +43,10 @@
     </td>
   </tr>
 </table>
+
 <%= f.label :description %>
 <%= f.text_area :description %>
+    <input type="hidden" name="user_id" value="<%= User.current_user.id %>" id="user_id"/>
 <div class="actions">
   <%= f.submit :class=>"btn btn-primary" %>
 </div>

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # , :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -10,4 +11,14 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :image, :last_name, :password
   has_many :items
-end
+
+  class << self
+  def current_user=(user)
+    Thread.current[:current_user] = user
+  end
+
+  def current_user
+    Thread.current[:current_user]
+  end
+  end
+  end

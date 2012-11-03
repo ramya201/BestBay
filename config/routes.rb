@@ -38,13 +38,13 @@ BestBay::Application.routes.draw do
   # match "items/catalogue/subcategory_id=:subcategory_id/category_id=:category_id" => "items#catalogue"
 
 
-  # get "items/index"
+  get "items/index"
 
-  # get "items/show"
+  get "items/show"
 
-  # get "items/new"
+  get "items/new"
 
-  # get "items/edit"
+  get "items/edit"
 
   # get "items/destroy"
 
