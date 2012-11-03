@@ -35,7 +35,12 @@ BestBay::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  Paperclip.options[:command_path] = "/usr/local/bin"
+  case Config::CONFIG['host_os']
+    when /darwin/   # MacOS & macports
+      Paperclip.options[:command_path] = "/usr/local/bin"
+    when /mswin|mingw/  # Windows
+      Paperclip.options[:command_path] = "C:/Omkar/IMAGEM~1.6-Q"
+  end
 
   #for devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }

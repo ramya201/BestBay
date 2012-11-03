@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-brands = Brand.create([{ name: 'Canon' }, { name: 'Kodak' }, { name: 'Sony'}, {name:'HP'},{name:'Samsung'}])
+brands = Brand.create([{ name: 'Canon' }, { name: 'Kodak' }, { name: 'Sony'}, {name:'HP'},{name:'Samsung'},{name:'Other'}])
 
 categories = Category.create([{ name: 'Electronics' }, { name: 'Books' }, { name: 'Appliances' }, { name: 'Furniture' }, { name: 'Apparel & Accessories'}, { name: 'Health & Beauty' }])
 
