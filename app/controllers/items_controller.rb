@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
   def edit                                   #edits details of item posted by the current user
     @item = Item.find(params[:id])
     @categories=Category.all
-    @subcategories=[]
+    @subcategories=Subcategory.find_all_by_category_id(@item.category_id)
   end
 
   def update
