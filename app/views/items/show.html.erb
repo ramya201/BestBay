@@ -7,8 +7,9 @@
 <%= if @item.user_id != User.current_user.id
 link_to 'Add to cart', { :controller => "cart", :action => "add", :item_obj => @item.id, :qty => 1 }, :class => "btn btn-primary", :method => "get"
 end %>
+ <br/>
 
-<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get" %>
+<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
 
 
 
