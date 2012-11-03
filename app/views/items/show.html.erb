@@ -8,4 +8,7 @@
 link_to 'Add to cart', { :controller => "cart", :action => "add", :item_obj => @item.id, :qty => 1 }, :class => "btn btn-primary", :method => "get"
 end %>
 
+<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get" %>
+
+
 
