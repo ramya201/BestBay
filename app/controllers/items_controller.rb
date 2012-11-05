@@ -8,7 +8,6 @@ class ItemsController < ApplicationController
 
   def show                                    #show item
     @item=Item.find(params[:id])
-
   end
 
   def add_item_to_cart()                     #adds items to cart
@@ -27,7 +26,7 @@ class ItemsController < ApplicationController
     @subcategories=Subcategory.find_all_by_category_id(@item.category_id)
   end
 
-  def update
+  def update                                 #updates details of item on edit
     @item = Item.find(params[:id])
 
     respond_to do |format|

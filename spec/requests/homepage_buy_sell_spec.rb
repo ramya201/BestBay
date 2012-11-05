@@ -9,9 +9,10 @@ describe "Buy or Sell" do
     click_link "buy_button"
     uri = URI.parse(current_url)
     "#{uri.path}?#{uri.query}".should match("/categories/index")
-    page.should have_content('What would you like to buy today?')
+    page.should have_content('Browse Catalogue')
   end
 
+=begin
   it "should give user the option to sell" do
     visit "/welcome/index"
     page.should have_link("sell_button", {:id => "sell_button", :href => "/seller/index"})
@@ -21,6 +22,7 @@ describe "Buy or Sell" do
     "#{uri.path}?#{uri.query}".should match("/seller/index")
     page.should have_content('My Dashboard')
   end
+=end
 
   it "should give user the option to review cart" do
     visit "/welcome/index"
