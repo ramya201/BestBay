@@ -4,29 +4,38 @@
   <tr class="success">
 
     <% if @items.nil?
-         @items = Item.last(5)
-         puts "Popular Items"
-       end
+     @items = Item.last(5)
+     puts "Popular Items"
+   end
 
-       @items.each do |item| %>
-        <td><%= image_tag item.pic.url(:medium) %> </td>
-        <td>
-          <table class="table table-bordered table-condensed">
-            <tr>
-              <td><b>Item Name:  </b><%= link_to item.name, item_path(item) %></td>
-            </tr>
-            <tr>
-              <td><b>Sale Type:  </b><%= item.sale_type %></td>
-            </tr>
-            <tr>
-              <td><b>Price:  $</b><%= item.instant_price %></td>
-            </tr>
-            <tr>
-              <td><b>Seller: <%= item.user.first_name.to_s + " " + item.user.last_name.to_s %></b></td>
-            </tr>
-          </table>
-        </tr>
-    <%
-       end
-    %>
+   @items.each do |item| %>
+   <td><%= image_tag item.pic.url(:medium) %> </td>
+   <td>
+    <table class="table table-bordered table-condensed">
+      <tr>
+        <td><b>Item Name:  </b><%= link_to item.name, item_path(item) %></td>
+      </tr>
+      <% if item.sale_type=='IS'%>
+      <tr>
+        <td><b>Sale Type:  Instant Sale</b></td>
+      </tr>
+      <tr>
+        <td><b>Price:  $</b><%= item.instant_price %></td>
+      </tr>
+      <% elsif item.sale_type=='A'%>
+      <tr>
+        <td><b>Sale Type:  Auction</b></td>
+      </tr>
+      <tr>
+        <td><b>Current Highest Bid:  $</b><%= item.start_price %></td>
+      </tr>
+      <% end %>
+      <tr>
+        <td><b>Seller: <%= item.user.first_name.to_s + " " + item.user.last_name.to_s %></b></td>
+      </tr>
     </table>
+  </tr>
+  <%
+end
+%>
+</table>
