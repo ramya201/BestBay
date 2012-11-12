@@ -5,7 +5,7 @@ require_relative "../../app/models/item"
 
 describe Item do
 
-  before { @item = Item.new(name: "Example Item",category_id: "2",subcategory_id: "3",brand_id: "2",description: "XYZ",sale_type: "Auction",quantity: "4",start_price: "100",instant_price: "100")}
+  before { @item = Item.new(name: "Example Item",category_id: "2",subcategory_id: "3",brand_id: "2",description: "XYZ",sale_type: "Auction",quantity: "4",price: "100")}
 
   subject { @item }
 
@@ -16,9 +16,7 @@ describe Item do
   it { should respond_to(:description) }
   it { should respond_to(:sale_type) }
   it { should respond_to(:quantity) }
-  it { should respond_to(:start_price) }
-  it { should respond_to(:instant_price) }
-
+  it { should respond_to(:price) }
 
   it "is not valid without a name" do
     @item.name = nil

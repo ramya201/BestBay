@@ -4,8 +4,7 @@ FactoryGirl.define do
     factory :item do
         name "Camera"
         description ""
-        start_price 1
-        instant_price 1
+        price 1
         quantity 1
         sale_type ""
         start_time "2012-10-01 02:16:12"
@@ -19,8 +18,7 @@ FactoryGirl.define do
     factory :IS1, parent: :item do
         name 'IS1'
         description 'this is IS1'
-        start_price ''
-        instant_price '100'
+        price '100'
         quantity '10'
         sale_type 'IS'
         start_time ''
@@ -34,8 +32,7 @@ FactoryGirl.define do
     factory :IS2, parent: :item do
         name 'IS2'
         description 'this is IS2'
-        start_price ''
-        instant_price '100'
+        price '100'
         quantity '0'
         sale_type 'IS'
         start_time ''
@@ -49,8 +46,7 @@ FactoryGirl.define do
     factory :A1 , parent: :item do
         name 'A1'
         description 'this is A1'
-        start_price '10'
-        instant_price ''
+        price ''
         quantity '1'
         sale_type 'A'
         start_time '2012-11-01 00:00:00.0'
@@ -64,8 +60,7 @@ FactoryGirl.define do
     factory :A2, parent: :item do
         name 'A2'
         description 'this is A2'
-        start_price '100'
-        instant_price ''
+        price ''
         quantity '1'
         sale_type 'A'
         start_time '2012-11-01 00:00:00.0'
@@ -75,6 +70,5 @@ FactoryGirl.define do
         category_id '1'
         subcategory_id '2'
     end
-
 
 end

@@ -30,6 +30,7 @@ BestBay::Application.routes.draw do
   resources :items
 
   match '/items/subcategories_by_category' => 'items#subcategories_by_category'
+
   #   member do
   #     get 'catalogue'
   #   end

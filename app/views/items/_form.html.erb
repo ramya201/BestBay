@@ -15,13 +15,9 @@
       <%= f.label :quantity %>
       <%= f.text_field :quantity, :size=>"80x1" %>
     </td>
-    <td> <%= f.label :instant_price %>
-      <%= f.text_field :instant_price,:size=>"80x1" %></td>
+    <td> <%= f.label :price %>
+      <%= f.text_field :price,:size=>"80x1" %></td>
     </tr>
-
-
-
-
     <tr>
       <td>
         <%= f.label :sale_type %>
@@ -32,6 +28,27 @@
         <%= f.collection_select :brand_id, Brand.all.sort(), :id, :name, :class => "dropdown-menu", :prompt => "Select a brand"%>
       </td>
     </tr>
+  <tr>
+
+    <% if @item.sale_type == "Instant Sale" || @item.sale_type==nil %>
+        <td>
+          <%= f.label :start_time %>
+          <%= f.text_field :start_time,:value=>Time.now,:disabled=>1,:size=>"80x1" %>
+        </td>
+    <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
+      <%= f.text_field :end_time,:size=>"80x1",:disabled=>1 %>
+    </td>
+    <% elsif @item.sale_type == "Auction" %>
+        <td>
+          <%= f.label :start_time %>
+          <%= f.text_field :start_time,:value=>Time.now,:size=>"80x1" %>
+        </td>
+        <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
+          <%= f.text_field :end_time,:size=>"80x1" %>
+        </td>
+        <% end %>
+
+  </tr>
     <tr>
      <td>
        <%= f.label :category_id %>
@@ -55,5 +72,13 @@
 <script>
 $("#item_category_id").change(function() {
   $.ajax({url: "/items/subcategories_by_category", type:"POST", data: {id: this.value}});
+});
+$("#item_sale_type").change(function() {
+    if (this.value == "Auction")
+    {document.getElementById('item_end_time').disabled=0;
+        document.getElementById('item_start_time').disabled=0}
+    else
+    {document.getElementById('item_end_time').disabled=1;
+        document.getElementById('item_start_time').disabled=0}
 });
 </script>

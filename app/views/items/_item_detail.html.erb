@@ -19,27 +19,26 @@
     <th>Sale Type</th>
     <td><%= @item.sale_type %></td>
   </tr>
-<!--  <tr>
-    <th>Start Price</th>
-    <td><%= @item.start_price %></td>
-  </tr>-->
-  <tr>
-    <th>Instant Price</th>
-    <td><%= @item.instant_price %></td>
-  </tr>
+
   <tr>
     <th>Quantity in Stock</th>
     <td><%= @item.quantity %></td>
   </tr>
+      <tr>
+        <th>Price</th>
+        <td><%= @item.price %></td>
+      </tr>
 
-  <!--<tr>
+ <% if @item.sale_type == "Auction" %>
+  <tr>
     <th>Start Time</th>
     <td><%= @item.start_time %></td>
-  </tr>-->
- <!-- <tr>
+  </tr>
+ <tr>
     <th>End Time</th>
     <td><%= @item.end_time %></td>
-  </tr>-->
+  </tr>
+ <% end %>
   <tr>
     <th>Seller Info</th>
     <td><%= @item.user.first_name.to_s + " " + @item.user.last_name.to_s %></td>

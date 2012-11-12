@@ -15,20 +15,23 @@
       <tr>
         <td><b>Item Name:  </b><%= link_to item.name, item_path(item) %></td>
       </tr>
-      <% if item.sale_type=='IS'%>
+      <% if item.sale_type=='Instant Sale'%>
       <tr>
         <td><b>Sale Type:  Instant Sale</b></td>
       </tr>
       <tr>
-        <td><b>Price:  $</b><%= item.instant_price %></td>
+        <td><b>Price:  $</b><%= item.price %></td>
       </tr>
-      <% elsif item.sale_type=='A'%>
+      <% elsif item.sale_type=='Auction'%>
       <tr>
         <td><b>Sale Type:  Auction</b></td>
       </tr>
       <tr>
-        <td><b>Current Highest Bid:  $</b><%= item.start_price %></td>
+        <td><b>Current Highest Bid:  $</b><%= item.price %></td>
       </tr>
+          <tr>
+            <td><b>End Time: </b><%= item.end_time %></td>
+          </tr>
       <% end %>
       <tr>
         <td><b>Seller: <%= item.user.first_name.to_s + " " + item.user.last_name.to_s %></b></td>

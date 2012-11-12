@@ -4,6 +4,12 @@ describe ItemsController do
 
   include Devise::TestHelpers
 
+  before(:each) do
+    @user_attr = FactoryGirl.attributes_for(:user)
+    @user = User.create!(@user_attr)
+    @user.save
+  end
+
   def setup
     @request.env["devise.mapping"] = Devise.mappings[:user]
     sign_in FactoryGirl.create(:user)
@@ -39,7 +45,7 @@ describe ItemsController do
   describe "GET edit" do
     it "assigns the requested item as @item" do
       item = Item.create! valid_attributes
-      get :edit, {:id => item.to_param}
+      get :edit, {:id => item.to_param},:format => :js
       assigns(:item).should eq(item)
     end
   end
@@ -90,26 +96,28 @@ describe ItemsController do
   end
 
 
-=begin
+
   describe "POST create" do
     describe "with valid params" do
       it "creates a new Item" do
         expect {
-          post :create, {:item => valid_attributes}
+          post :create,
+               :user_id => @user.id,
+               :item => valid_attributes
         }.to change(Item, :count).by(1)
       end
 
       it "assigns a newly created item as @item" do
-        post :create, {:item => valid_attributes}
+        post :create,:user_id => @user.id,:item => valid_attributes
         assigns(:item).should be_a(Item)
         assigns(:item).should be_persisted
       end
 
       it "redirects to the created item" do
-        post :create, {:item => valid_attributes}
+        post :create,:user_id => @user.id,:item => valid_attributes
         response.should redirect_to(Item.last)
       end
     end
   end
-=end
+
   end

@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
 
   respond_to :html, :json, :xml
   include CartHelper
+  helper_method :type
 
   def index
   end
