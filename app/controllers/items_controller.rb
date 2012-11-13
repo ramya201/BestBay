@@ -74,4 +74,8 @@ class ItemsController < ApplicationController
     end
   end
 
+  def current_sale
+       @items  = Item.all
+
+  end
 end

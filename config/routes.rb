@@ -2,8 +2,6 @@ BestBay::Application.routes.draw do
 
   devise_for :users
 
-
-
   get "seller/index"
 
   get "seller/show"
@@ -16,8 +14,6 @@ BestBay::Application.routes.draw do
 
   root :to => 'welcome#index'
 
-
-
   resources :cart do
     member do
       get 'add'
@@ -27,17 +23,7 @@ BestBay::Application.routes.draw do
     end
   end
 
-  resources :items
-
   match '/items/subcategories_by_category' => 'items#subcategories_by_category'
-
-  #   member do
-  #     get 'catalogue'
-  #   end
-  # end
-
-  # match "items/catalogue/subcategory_id=:subcategory_id/category_id=:category_id" => "items#catalogue"
-
 
   get "items/index"
 
@@ -46,6 +32,8 @@ BestBay::Application.routes.draw do
   get "items/new"
 
   get "items/edit"
+
+  get "items/current_sale"
 
   # get "items/destroy"
 
@@ -77,7 +65,7 @@ BestBay::Application.routes.draw do
     end
   end
 
-
+  resources :items
 
 
 

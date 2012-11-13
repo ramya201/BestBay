@@ -1,0 +1,39 @@
+
+<table class="table table-bordered table-condensed" style="width:100%">
+
+  <tr class="success">
+
+    <%
+       count = 0
+       @items.each do |item|
+         if item.user_id == User.current_user.id
+           count = count + 1
+
+    %>
+
+            <td><%= image_tag item.pic.url(:medium) %> </td>
+            <td>
+              <table class="table table-bordered table-condensed">
+                <tr>
+                  <td><b>Item Name:  </b><%= link_to item.name, item_path(item) %></td>
+                </tr>
+                <tr>
+                  <td><b>Sale Type:  </b><%= item.sale_type %></td>
+                </tr>
+                <tr>
+                  <td><b>Price:  $</b><%= item.price %></td>
+                </tr>
+              </table>
+            </tr>
+        <%
+           end
+           end
+           if count == 0
+        %> <caption>Nothing on sale</caption>
+    <%
+       end
+    %>
+    </table>
+
+<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
+
