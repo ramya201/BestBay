@@ -9,6 +9,11 @@
    end
 
    @items.each do |item| %>
+        <% days_passed = 0 %>
+        <% if item.sale_type == 'Auction'
+             days_passed = (item.end_time.to_date - Date.today).to_i
+           end%>   <!-- calculate number of days left -->
+        <% if days_passed >= 0 %>              <!-- Does not show expired auctions -->
    <td><%= image_tag item.pic.url(:medium) %> </td>
    <td>
     <table class="table table-bordered table-condensed">
@@ -32,7 +37,7 @@
           <tr>
             <td><b>End Time: </b><%= item.end_time %></td>
           </tr>
-          <% days_passed = (item.end_time.to_date - Date.today).to_i %>   <!-- calculate number of days left -->
+
           <tr>
             <td><b>Time Left: </b><%= days_passed %> Days</td>         <!-- display number of days left -->
           </tr>
@@ -44,5 +49,6 @@
   </tr>
   <%
 end
+     end
 %>
 </table>
