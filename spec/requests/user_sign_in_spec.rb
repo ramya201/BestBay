@@ -42,7 +42,7 @@ require 'spec_helper'
 
       visit "/users/sign_in"
 
-      fill_in "Email",    :with => "testuser@abc.com"
+      fill_in "Email",    :with => "testuser@abc.com "
       fill_in "Password", :with => "ilovgrapes"
 
       click_button "Sign in"

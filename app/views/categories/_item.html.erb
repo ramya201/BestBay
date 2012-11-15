@@ -32,6 +32,10 @@
           <tr>
             <td><b>End Time: </b><%= item.end_time %></td>
           </tr>
+          <% days_passed = (item.end_time.to_date - Date.today).to_i %>   <!-- calculate number of days left -->
+          <tr>
+            <td><b>Time Left: </b><%= days_passed %> Days</td>         <!-- display number of days left -->
+          </tr>
       <% end %>
       <tr>
         <td><b>Seller: <%= item.user.first_name.to_s + " " + item.user.last_name.to_s %></b></td>

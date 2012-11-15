@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: brands
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require "rspec"
 require "spec_helper"
 require_relative "../../app/models/brand"

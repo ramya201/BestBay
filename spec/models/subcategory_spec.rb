@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: subcategories
+#
+#  id          :integer          not null, primary key
+#  name        :string(255)
+#  category_id :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require "rspec"
 require "spec_helper"
 require_relative "../../app/models/subcategory"

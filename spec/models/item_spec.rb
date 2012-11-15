@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: items
+#
+#  id               :integer          not null, primary key
+#  name             :string(255)
+#  description      :string(255)
+#  price            :integer
+#  quantity         :integer
+#  sale_type        :string(255)
+#  start_time       :datetime
+#  end_time         :datetime
+#  user_id          :integer
+#  brand_id         :integer
+#  category_id      :integer
+#  subcategory_id   :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  pic_file_name    :string(255)
+#  pic_content_type :string(255)
+#  pic_file_size    :integer
+#
+
 require "rspec"
 require "spec_helper"
 require_relative "../../app/models/item"

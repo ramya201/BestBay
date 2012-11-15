@@ -38,6 +38,11 @@
     <th>End Time</th>
     <td><%= @item.end_time %></td>
   </tr>
+      <% days_passed = (@item.end_time.to_date - Date.today).to_i %>
+      <tr>
+        <th>Time Left</th>
+        <td><%= days_passed %> Days</td>
+      </tr>
  <% end %>
   <tr>
     <th>Seller Info</th>
