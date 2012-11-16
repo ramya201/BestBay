@@ -9,7 +9,5 @@ link_to 'Add to cart', { :controller => "cart", :action => "add", :item_obj => @
 end %>
  <br/>
 
-<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
-
-
+<%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
 
