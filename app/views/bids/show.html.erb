@@ -1,0 +1,27 @@
+<b><p id="notice" style="color: #dc0000;"><%= notice %></p> </b>
+
+<h3>Current Bids</h3>
+<table class="table table-bordered table-condensed" style="width: 60%;border-style: ridge;border-width: 2px;border-color:#262626;">
+  <tr style="background-color: #262626;color:#a9a9a9; ">
+    <th>Item Name</th>
+    <th>Seller Name</th>
+    <th>Bid Amount</th>
+    <th>Current Highest Bid</th>
+    <th>Auction End Time</th>
+  </tr>
+
+<% @bids.sort_by{|e| -e[:id]}.each do |bid| %>
+  <tr>
+    <td><%= link_to bid.item.name,item_path(bid.item) %></td>
+    <td><%= bid.item.user.first_name.to_s + " " + bid.item.user.last_name.to_s %></td>
+    <td><%= bid.amount %></td>
+    <td><%= get_highest_bid(bid.item_id) %></td>
+    <td><%= bid.item.end_time %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
+
+

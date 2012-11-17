@@ -11,6 +11,8 @@
         <tr><td><img src="<%= image_path('shopping_cart.png')%>" height="140px" width="150px"></td></tr>
         <tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items in your cart</h4></td></tr>
         <tr><td style="padding-left: 40px;">   <%= link_to 'Checkout',"#",:class => "btn btn-primary" %> </td> </tr>
+        <tr><td style="padding-left: 50px;"><%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
+        </td></tr>
       </table>
     </td>
 
@@ -29,12 +31,12 @@
           <% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
           <tr>
             <td style="vertical-align: middle; text-align: center;"><%= link_to item.name, item_path(item) %></td>
-            <td style="vertical-align: middle; text-align: center;"><%= instant_price=item.instant_price.to_i %></td>
+            <td style="vertical-align: middle; text-align: center;"><%= price=item.price.to_i %></td>
             <td style="vertical-align: middle; text-align: center;"><%= count=cart_item.fetch("table").fetch("count")%></td>
-            <td style="vertical-align: middle; text-align: center;"><%= instant_price*count%></td>
+            <td style="vertical-align: middle; text-align: center;"><%= price*count%></td>
             <td style="vertical-align: middle; text-align: center;"><%= link_to "Remove", remove_cart_path(item.id), :class => "btn btn-primary", :method => "get"  %></td>
           </tr>
-          <% total = total + instant_price*count %>
+          <% total = total + price*count %>
       <%end%>
       <tr>
         <td></td>
@@ -47,9 +49,10 @@
           <% end %>
 
           </tr>
-
     </table></td>
   </tr></table>
+<br/>
+
 
 
 

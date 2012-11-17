@@ -43,6 +43,10 @@
         <th>Time Left</th>
         <td><%= days_passed %> Days</td>
       </tr>
+      <tr>
+        <th>Current Highest Bid</th>
+        <td><%= get_highest_bid(@item.id) %></td>
+      </tr>
  <% end %>
   <tr>
     <th>Seller Info</th>

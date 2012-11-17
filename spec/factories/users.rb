@@ -7,4 +7,5 @@ FactoryGirl.define do
     last_name "Example Last"
     email "abcd@example.com"
   end
+
 end

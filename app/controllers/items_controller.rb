@@ -2,7 +2,6 @@ class ItemsController < ApplicationController
 
   respond_to :html, :json, :xml
   include CartHelper
-  helper_method :type
 
   def index
   end
@@ -76,6 +75,14 @@ class ItemsController < ApplicationController
 
   def current_sale
        @items  = Item.all
+  end
 
+  def get_highest_bid
+    @bid = Bid.find_all_by_item_id(params[:id]).sort_by{|e| -e[:amount]}.first()
+    if @bid == null_object?
+      puts Item.find(params[:id]).price
+    elsif
+      puts @bid.amount
+    end
   end
 end
