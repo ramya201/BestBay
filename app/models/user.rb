@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :image, :last_name, :password
   has_many :items
+  has_many :bids
   validates_presence_of :first_name, :last_name
 
   class << self

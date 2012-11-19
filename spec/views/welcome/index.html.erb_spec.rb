@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "welcome/index.html.erb" do
+describe "welcome/show.html.erb" do
 
 end

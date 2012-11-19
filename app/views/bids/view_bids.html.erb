@@ -1,0 +1,26 @@
+<% if @bids != [] %>
+    <h3>Bids for <%= @bids[0].item.name %></h3>
+    <h4>Current Highest Bid: $  <%= get_highest_bid(@bids[0].item_id) %></h4>
+    <br/>
+<table class="table table-bordered table-condensed" style="width: 50%;border-style: ridge;border-width: 2px;border-color:#262626;">
+  <tr style="background-color: #262626;color: #777777;">
+    <th>Buyer Name</th>
+    <th>Bid Amount</th>
+    <th>Bid Date</th>
+  </tr>
+
+  <% @bids.sort_by{|e| -e[:id]}.each do |bid| %>
+      <tr>
+        <td><%= bid.user.first_name.to_s + bid.user.last_name.to_s %></td>
+        <td><%= bid.amount %></td>
+        <td><%= bid.created_at %></td>
+      </tr>
+  <% end %>
+</table>
+    <% else %>
+    <h4>There are no current bids for this item</h4>
+    <% end %>
+
+<br />
+
+<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>

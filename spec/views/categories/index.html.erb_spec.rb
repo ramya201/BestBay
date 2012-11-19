@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "categories/index.html.erb" do
+describe "categories/show.html.erb" do
   it "shows users the number of days left on an auction" do
   user = User.create(:email    => "testuser@abc.com",
                      :password => "ilovegrapes",

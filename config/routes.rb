@@ -25,6 +25,8 @@ BestBay::Application.routes.draw do
 
   match '/items/subcategories_by_category' => 'items#subcategories_by_category'
 
+
+
   get "items/index"
 
   get "items/show"
@@ -35,13 +37,21 @@ BestBay::Application.routes.draw do
 
   get "items/current_sale"
 
+  get "bids/new"
+
+  get "bids/show"
+
   # get "items/destroy"
 
   # get "subcategories/list"
 
   # get "subcategories/show"
 
-
+  resources :bids do
+    member do
+      get 'view_bids'
+    end
+  end
 
   get "categories/index"
 
@@ -67,8 +77,7 @@ BestBay::Application.routes.draw do
 
   resources :items
 
-
-
+  resources :bids
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

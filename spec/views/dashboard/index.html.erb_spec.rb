@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "dashboard/index.html.erb" do
+describe "dashboard/show.html.erb" do
 
 end
