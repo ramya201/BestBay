@@ -1,5 +1,5 @@
 
-<%= form_for @item, :html => { :multipart => true } do |f| %>
+<%= form_for @item, :html => { :multipart => true, :id => "post_form" } do |f| %>
 <table>
   <tr>
     <td>
@@ -75,4 +75,35 @@ $("#item_sale_type").change(function() {
     {document.getElementById('item_end_time').disabled=1;
         document.getElementById('item_start_time').disabled=1}
 });
+    var msg= new String();
+    $("#post_form").submit(function() {
+        var msg= new String();
+
+        if ($("#item_name").val() == "")
+        { msg+="Name cannot be empty\n";
+        }
+        if ($("#item_quantity").val() == "")
+        { msg+="Quantitycannot be empty\n";
+        }
+        if ($("#item_price").val() == "")
+        { msg+="Price cannot be empty\n";
+        }
+        if ($("#item_brand_id").val() == "")
+        { msg+="Brand cannot be empty\n";
+        }
+        if ($("#item_category_id").val() == "")
+        { msg+="Category cannot be empty\n";
+        }
+        if ($("#item_subcategory_id").val() == "")
+        { msg+="Subcategory cannot be empty";
+        }
+        if (msg.length >0)
+        {
+        alert(msg);
+        return false;
+
+        }
+
+
+    });
 </script>
