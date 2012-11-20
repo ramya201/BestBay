@@ -14,6 +14,8 @@ BestBay::Application.routes.draw do
 
   root :to => 'welcome#index'
 
+  match '/checkout' => 'cart#checkout'
+  match '/pay' => 'cart#pay'
   resources :cart do
     member do
       get 'add'

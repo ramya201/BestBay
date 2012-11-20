@@ -1,4 +1,4 @@
-<%= form_for Bid.new do |f| %>
+<%= form_for Bid.new, :html => {:id => "bid_form"} do |f| %>
 <div class="actions">
   <%= f.label :amount %>
   <%= f.text_field :amount %>
@@ -9,8 +9,9 @@
 </div>
 <% end %>
 <script>
-    $("#bid_amount").change(function() {
-        if (this.value <= ($("#highest_bid").value + 1))
-        {alert("Bid amount should raise the current highest bid by minimum 1$");}
+    $("#bid_form").submit(function() {
+        if ($("#bid_amount").val() < ($("#highest_bid").val() + 1))
+        {alert("Bid amount should raise the current highest bid by minimum 1$");
+         return false;}
     });
 </script>

@@ -35,5 +35,4 @@
     %>
     </table>
 
-<%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
-
+<%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>

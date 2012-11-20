@@ -1,5 +1,5 @@
 
-<%= form_for @item, :html => { :multipart => true } do |f| %>
+<%= form_for @item, :html => { :multipart => true, :id => "post_form" } do |f| %>
 <table>
   <tr>
     <td>
@@ -32,18 +32,11 @@
   <tr>
 
     <% if @item.sale_type == "Instant Sale" || @item.sale_type==nil %>
-        <td>
-          <%= f.label :start_time %>
-          <%= f.text_field :start_time,:value=>Time.now.strftime("%m/%d/%Y"),:disabled=>1,:size=>"80x1" %>
-        </td>
+
     <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
       <%= f.text_field :end_time,:size=>"80x1",:disabled=>1 %>
     </td>
     <% elsif @item.sale_type == "Auction" %>
-        <td>
-          <%= f.label :start_time %>
-          <%= f.text_field :start_time,:value=>Time.now.strftime("%m/%d/%Y"),:size=>"80x1" %>
-        </td>
         <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
           <%= f.text_field :end_time,:size=>"80x1" %>
         </td>
@@ -82,4 +75,35 @@ $("#item_sale_type").change(function() {
     {document.getElementById('item_end_time').disabled=1;
         document.getElementById('item_start_time').disabled=1}
 });
+    var msg= new String();
+    $("#post_form").submit(function() {
+        var msg= new String();
+
+        if ($("#item_name").val() == "")
+        { msg+="Name cannot be empty\n";
+        }
+        if ($("#item_quantity").val() == "")
+        { msg+="Quantitycannot be empty\n";
+        }
+        if ($("#item_price").val() == "")
+        { msg+="Price cannot be empty\n";
+        }
+        if ($("#item_brand_id").val() == "")
+        { msg+="Brand cannot be empty\n";
+        }
+        if ($("#item_category_id").val() == "")
+        { msg+="Category cannot be empty\n";
+        }
+        if ($("#item_subcategory_id").val() == "")
+        { msg+="Subcategory cannot be empty";
+        }
+        if (msg.length >0)
+        {
+        alert(msg);
+        return false;
+
+        }
+
+
+    });
 </script>
