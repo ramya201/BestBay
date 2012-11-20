@@ -11,7 +11,8 @@
         <tr><td><img src="<%= image_path('shopping_cart.png')%>" height="140px" width="150px"></td></tr>
         <tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items in your cart</h4></td></tr>
         <tr><td style="padding-left: 40px;">   <%= link_to 'Checkout',"#",:class => "btn btn-primary" %> </td> </tr>
-        <tr><td style="padding-left: 50px;"><%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
+        <tr> <td style="padding-left: 40px;">
+          <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
         </td></tr>
       </table>
     </td>

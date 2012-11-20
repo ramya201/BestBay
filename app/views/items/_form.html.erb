@@ -32,18 +32,11 @@
   <tr>
 
     <% if @item.sale_type == "Instant Sale" || @item.sale_type==nil %>
-        <td>
-          <%= f.label :start_time %>
-          <%= f.text_field :start_time,:value=>Time.now.strftime("%m/%d/%Y"),:disabled=>1,:size=>"80x1" %>
-        </td>
+
     <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
       <%= f.text_field :end_time,:size=>"80x1",:disabled=>1 %>
     </td>
     <% elsif @item.sale_type == "Auction" %>
-        <td>
-          <%= f.label :start_time %>
-          <%= f.text_field :start_time,:value=>Time.now.strftime("%m/%d/%Y"),:size=>"80x1" %>
-        </td>
         <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
           <%= f.text_field :end_time,:size=>"80x1" %>
         </td>
