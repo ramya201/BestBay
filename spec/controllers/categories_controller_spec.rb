@@ -15,7 +15,7 @@ describe CategoriesController do
 			assigns[:items].should include(@IS1)
 			assigns[:items].should include(@A1)
 			assigns[:items].should_not include(@IS2)
-			assigns[:items].should_not include(@A2)
+			assigns[:items].should_not include(@A6)
 		end
 		it "when search for items" do
 			get :index, search: 'is1'
