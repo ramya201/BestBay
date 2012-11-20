@@ -45,4 +45,20 @@ BestBay::Application.configure do
   #for devise
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
+  config.action_mailer.raise_delivery_errors = true
+
+# set delivery method to :smtp, :sendmail or :test
+  config.action_mailer.delivery_method = :smtp
+
+# these options are only needed if you choose smtp delivery
+  config.action_mailer.smtp_settings = {
+      :address        => 'smtp.gmail.com',
+      :port           => 587,
+      :enable_starttls_auto => true,
+      :domain         => 'mail.google.com',
+      :authentication => :plain,
+      :user_name      => 'juggernauts.bestbay@gmail.com',
+      :password       => 'Juggernauts'
+  }
+
 end

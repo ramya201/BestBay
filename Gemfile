@@ -51,6 +51,8 @@ gem 'factory_girl_rails'
 gem 'rspec-rails'
 gem 'devise'
 gem "paperclip", "~> 3.0"
+gem 'daemons'
+gem 'mail'
 
 #gem 'ruby-debug19'
 #gem 'ruby-debug-base19x'
