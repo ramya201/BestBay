@@ -12,6 +12,7 @@
         <% if item.sale_type == 'Auction' %>
              <% time_left_sec = Time.parse(item.end_time.to_s) - Time.parse(Time.now.to_s) %>
             <% time_left_hours = time_left_sec/3600 %>
+            <% time_left_min = time_left_sec/60 %>
             <% days_passed = (item.end_time.to_date - Date.today).to_i %>
 
           <% end%>   <!-- calculate number of days left -->
@@ -41,10 +42,14 @@
           </tr>
 
           <tr>
-            <% if time_left_hours < 24 %>
+            <% if time_left_hours < 1 %>
+                <td><b>Time Left: </b><%= time_left_min.round%> Minutes </td>
+            <% elsif time_left_hours < 24 %>
                 <td><b>Time Left: </b><%= time_left_hours.round%> Hours </td>
-            <% else %>
+            <% elsif days_passed < 7 %>
                 <td><b>Time Left: </b><%= days_passed%> Days</td>
+            <% else %>
+                <td><b>Time Left: </b><%= (days_passed/7).round %> Weeks (approx)</td>
             <% end %>        <!-- display number of days left -->
           </tr>
       <% end %>
