@@ -30,18 +30,22 @@
       </tr>
 
  <% if @item.sale_type == "Auction" %>
-  <tr>
-    <th>Start Time</th>
-    <td><%= @item.start_time %></td>
-  </tr>
- <tr>
-    <th>End Time</th>
-    <td><%= @item.end_time %></td>
-  </tr>
+
+      <% time_left_sec = Time.parse(@item.end_time.to_s) - Time.parse(Time.now.to_s) %>
+      <% time_left_min = time_left_sec/60 %>
+      <% time_left_hours = time_left_sec/3600 %>
       <% days_passed = (@item.end_time.to_date - Date.today).to_i %>
       <tr>
         <th>Time Left</th>
-        <td><%= days_passed %> Days</td>
+        <% if time_left_hours < 1 %>
+            <td><%= time_left_min.round%> Minutes </td>
+        <% elsif time_left_hours < 24 %>
+            <td><%= time_left_hours.round%> Hours </td>
+        <% elsif days_passed < 7 %>
+        <td><%= days_passed%> Days</td>
+        <% else %>
+        <td><%= (days_passed/7).round %> Weeks (approx) </td>
+      <% end %>
       </tr>
       <tr>
         <th>Current Highest Bid</th>

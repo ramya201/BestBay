@@ -9,10 +9,14 @@
 
    @items.sort_by{|e| -e[:id]}.each do |item| %>
         <% days_passed = 0 %>
-        <% if item.sale_type == 'Auction'
-             days_passed = (item.end_time.to_date - Date.today).to_i
-           end%>   <!-- calculate number of days left -->
-        <% if days_passed >= 0 %>              <!-- Does not show expired auctions -->
+        <% if item.sale_type == 'Auction' %>
+             <% time_left_sec = Time.parse(item.end_time.to_s) - Time.parse(Time.now.to_s) %>
+            <% time_left_hours = time_left_sec/3600 %>
+            <% time_left_min = time_left_sec/60 %>
+            <% days_passed = (item.end_time.to_date - Date.today).to_i %>
+
+          <% end%>   <!-- calculate number of days left -->
+        <% if (item.sale_type == 'Auction' && time_left_sec >= 0) || (item.sale_type != 'Auction') %>              <!-- Does not show expired auctions -->
    <td><%= image_tag item.pic.url(:medium) %> </td>
    <td>
     <table class="table table-bordered table-condensed">
@@ -33,12 +37,18 @@
       <tr>
         <td><b>Current Highest Bid:  $</b><%= get_highest_bid(item.id) %></td>
       </tr>
-          <tr>
-            <td><b>End Time: </b><%= item.end_time %></td>
-          </tr>
 
           <tr>
-            <td><b>Time Left: </b><%= days_passed %> Days</td>         <!-- display number of days left -->
+
+            <% if time_left_hours < 1 %>
+                <td><b>Time Left: </b><%= time_left_min.round%> Minutes </td>
+            <% elsif time_left_hours < 24 %>
+                <td><b>Time Left: </b><%= time_left_hours.round%> Hours </td>
+            <% elsif days_passed < 7 %>
+                <td><b>Time Left: </b><%= days_passed%> Days</td>
+            <% else %>
+                <td><b>Time Left: </b><%= (days_passed/7).round %> Weeks (approx)</td>
+            <% end %>        <!-- display number of days left -->
           </tr>
       <% end %>
       <tr>

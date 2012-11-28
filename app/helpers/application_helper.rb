@@ -7,4 +7,7 @@ module ApplicationHelper
       @bid.amount
     end
   end
+  def get_start_price(item_id)
+      Item.find(item_id).price
+  end
 end

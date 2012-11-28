@@ -13,7 +13,7 @@ describe "categories/show.html.erb" do
   fill_in "Password", :with => "ilovegrapes"
 
   click_button "Sign in"
-  item = FactoryGirl.create(:A2, :name => "Kodak camera 10 megapixel", :user => user, :end_time => "2012-12-15")
+  item = FactoryGirl.create(:A7, :name => "Kodak camera 10 megapixel", :user => user, :end_time => "2012-12-1")
 
   visit "/categories/index"
   days_passed = (item.end_time.to_date - Date.today).to_i

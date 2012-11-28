@@ -1,16 +1,18 @@
-<%= form_for Bid.new do |f| %>
+<%= form_for Bid.new, :html => {:id => "bid_form"} do |f| %>
 <div class="actions">
   <%= f.label :amount %>
-  <%= f.text_field :amount %>
+  <%= f.text_field :amount %>    (please enter integer values only)
   <%= f.hidden_field :item_id,:value=>@item.id %>
   <%= f.hidden_field :user_id,:value=> User.current_user.id %>
   <input type="hidden" id="highest_bid" value="<%= get_highest_bid(@item.id) %>">
+  <input type="hidden" id="start_price" value="<%= get_start_price(@item.id) %>">
   <%= f.submit "Place a Bid", :class=>"btn btn-primary" %>
 </div>
 <% end %>
 <script>
-    $("#bid_amount").change(function() {
-        if (this.value <= ($("#highest_bid").value + 1))
-        {alert("Bid amount should raise the current highest bid by minimum 1$");}
+    $("#bid_form").submit(function() {
+        if (($("#bid_amount").val() < ($("#highest_bid").val() + 1)) || ($("#bid_amount").val() < ($("#start_price").val() + 1)) )
+        {alert("Bid amount should raise the current highest bid by minimum 1$");
+         return false;}
     });
 </script>

@@ -1,0 +1,48 @@
+<table style="width: 60%;">
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td><h4><%= if user_signed_in?
+						current_user.first_name.to_s + "'s "
+						end %>Checkout Page</h4></td>
+					</tr>
+					<tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items to checkout</h4></td></tr>
+					<tr><td style="padding-left: 40px;">   <%= link_to 'Pay Now',{:controller => "cart", :action => "pay"},:class => "btn btn-primary" %> </td> </tr>
+					<tr><td style="padding-left: 50px;"><%= link_to 'Back', { :controller => "cart", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
+					</td></tr>
+				</table>
+			</td>
+
+			<td><% total = 0 %>
+				<table class="table table-bordered" style="width: 100%;">
+
+					<tr style="background-color: #262626;color: #bbbbbb;">
+
+						<th>Name</th>
+						<th>Price</th>
+						<th>Quantity</th>
+						<th>Total</th>
+					</tr>
+					<% @_controller.get_all_items_in_cart.each do |cart_item|%>
+					<% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
+					<tr>
+						<td style="vertical-align: middle; text-align: center;"><%= link_to item.name, item_path(item) %></td>
+						<td style="vertical-align: middle; text-align: center;"><%= price=item.price.to_i %></td>
+						<td style="vertical-align: middle; text-align: center;"><%= count=cart_item.fetch("table").fetch("count")%></td>
+						<td style="vertical-align: middle; text-align: center;"><%= price*count%></td>
+					</tr>
+					<% total = total + price*count %>
+					<%end%>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td style="vertical-align: middle; text-align: center;">
+							<% if (total!=0) %>
+							<%= "Total = #{total}" %></td>
+							<% end %>
+						</tr>
+					</table></td>
+				</tr></table>
+				<br/>

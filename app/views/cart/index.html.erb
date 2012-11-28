@@ -1,33 +1,34 @@
-
+<b><p class="notice" style="color:#969696;"><%= flash[:notice] %></p></b>
 <table style="width: 60%;">
   <tr>
     <td>
       <table>
         <tr>
           <td><h4><%= if user_signed_in?
-                        current_user.first_name.to_s + "'s "
-          end %>Shopping Cart</h4></td>
-        </tr>
-        <tr><td><img src="<%= image_path('shopping_cart.png')%>" height="140px" width="150px"></td></tr>
-        <tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items in your cart</h4></td></tr>
-        <tr><td style="padding-left: 40px;">   <%= link_to 'Checkout',"#",:class => "btn btn-primary" %> </td> </tr>
-        <tr><td style="padding-left: 50px;"><%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
-        </td></tr>
-      </table>
-    </td>
+            current_user.first_name.to_s + "'s "
+            end %>Shopping Cart</h4></td>
+          </tr>
+          <tr><td><img src="<%= image_path('shopping_cart.png')%>" height="140px" width="150px"></td></tr>
+          <tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items in your cart</h4></td></tr>
+          <tr><td style="padding-left: 40px;">   <%= link_to 'Checkout',{ :controller => "cart", :action => "checkout"},:class => "btn btn-primary" %> </td> </tr>
+          <tr> <td style="padding-left: 40px;">
+            <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
+          </td></tr>
+        </table>
+      </td>
 
-    <td><% total = 0 %>
-      <table class="table table-bordered" style="width: 100%;">
+      <td><% total = 0 %>
+        <table class="table table-bordered" style="width: 100%;">
 
-      <tr style="background-color: #262626;color: #bbbbbb;">
+          <tr style="background-color: #262626;color: #bbbbbb;">
 
-        <th>Name</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Total</th>
-        <th></th>
-      </tr>
-      <% @_controller.get_all_items_in_cart.each do |cart_item|%>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+          <% @_controller.get_all_items_in_cart.each do |cart_item|%>
           <% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
           <tr>
             <td style="vertical-align: middle; text-align: center;"><%= link_to item.name, item_path(item) %></td>
@@ -37,21 +38,20 @@
             <td style="vertical-align: middle; text-align: center;"><%= link_to "Remove", remove_cart_path(item.id), :class => "btn btn-primary", :method => "get"  %></td>
           </tr>
           <% total = total + price*count %>
-      <%end%>
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <% if (total!=0) %>
+          <%end%>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="vertical-align: middle; text-align: center;">
+              <% if (total!=0) %>
               <%= "Total = #{total}" %></td>
-          <% end %>
-
-          </tr>
-    </table></td>
-  </tr></table>
-<br/>
+              <% end %>
+            </tr>
+          </table></td>
+        </tr></table>
+        <br/>
 
 
 
