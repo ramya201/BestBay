@@ -33,11 +33,11 @@
 
     <% if @item.sale_type == "Instant Sale" || @item.sale_type==nil %>
 
-    <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
+    <td> <%= f.label :end_date.to_s + "(yyyy-mm-dd)" %>
       <%= f.text_field :end_time,:size=>"80x1",:disabled=>1 %>
     </td>
     <% elsif @item.sale_type == "Auction" %>
-        <td> <%= f.label :end_time.to_s + "(yyyy-mm-dd)" %>
+        <td> <%= f.label :end_date.to_s + "(yyyy-mm-dd)" %>
           <%= f.text_field :end_time,:size=>"80x1" %>
         </td>
         <% end %>
