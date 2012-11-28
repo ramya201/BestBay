@@ -1,7 +1,7 @@
 <%= form_for Bid.new, :html => {:id => "bid_form"} do |f| %>
 <div class="actions">
   <%= f.label :amount %>
-  <%= f.text_field :amount %>
+  <%= f.text_field :amount %>    (please enter integer values only)
   <%= f.hidden_field :item_id,:value=>@item.id %>
   <%= f.hidden_field :user_id,:value=> User.current_user.id %>
   <input type="hidden" id="highest_bid" value="<%= get_highest_bid(@item.id) %>">

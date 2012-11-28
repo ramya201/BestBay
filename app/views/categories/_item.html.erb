@@ -16,7 +16,7 @@
             <% days_passed = (item.end_time.to_date - Date.today).to_i %>
 
           <% end%>   <!-- calculate number of days left -->
-        <% if time_left_sec >= 0 %>              <!-- Does not show expired auctions -->
+        <% if (item.sale_type == 'Auction' && time_left_sec >= 0) || (item.sale_type != 'Auction') %>              <!-- Does not show expired auctions -->
    <td><%= image_tag item.pic.url(:medium) %> </td>
    <td>
     <table class="table table-bordered table-condensed">
@@ -37,11 +37,9 @@
       <tr>
         <td><b>Current Highest Bid:  $</b><%= get_highest_bid(item.id) %></td>
       </tr>
-          <tr>
-            <td><b>End Time: </b><%= item.end_time %></td>
-          </tr>
 
           <tr>
+
             <% if time_left_hours < 1 %>
                 <td><b>Time Left: </b><%= time_left_min.round%> Minutes </td>
             <% elsif time_left_hours < 24 %>

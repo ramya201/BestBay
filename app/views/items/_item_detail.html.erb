@@ -30,10 +30,7 @@
       </tr>
 
  <% if @item.sale_type == "Auction" %>
- <tr>
-    <th>End Time</th>
-    <td><%= @item.end_time %></td>
-  </tr>
+
       <% time_left_sec = Time.parse(@item.end_time.to_s) - Time.parse(Time.now.to_s) %>
       <% time_left_min = time_left_sec/60 %>
       <% time_left_hours = time_left_sec/3600 %>
