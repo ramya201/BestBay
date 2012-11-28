@@ -1,25 +1,31 @@
-<h2>Sign up</h2>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>      <!-- Form for user registration -->
   <%= devise_error_messages! %>
+    <div class="row">
+      <div class="span6 offset3">
 
-  <div><%= f.label :first_name %><br />
-  <%= f.text_field :first_name %></div>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
 
-  <div><%= f.label :last_name %><br />
-  <%= f.text_field :last_name %></div>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
 
+<%= f.label :password %>
+  <%= f.password_field :password %>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>    <br />
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+        <!-- in users/_form.html.erb -->
+        <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
 
-  <div><%= f.submit "Sign up" %></div>
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
 <% end %>
-
+</div>
+</div>
 <%= render "devise/shared/links" %>

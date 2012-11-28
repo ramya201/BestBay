@@ -12,7 +12,8 @@ BestBay::Application.routes.draw do
 
   get "welcome/index"
 
-  root :to => 'welcome#index'
+  # root :to => 'welcome#index'
+  root to: 'static_pages#home'
 
   resources :cart do
     member do
@@ -24,7 +25,8 @@ BestBay::Application.routes.draw do
   end
 
   match '/items/subcategories_by_category' => 'items#subcategories_by_category'
-
+  match '/about',   to: 'static_pages#about'
+  match '/contact', to: 'static_pages#contact'
 
 
   get "items/index"
