@@ -2,8 +2,9 @@
 
 <% if (user_signed_in?) && (@item.user_id == User.current_user.id) %>
     <%= link_to 'Edit Item', edit_item_path(@item), class: "btn btn-primary",:remote=>true %>
+      <% if @item.sale_type == "Auction" %>
       <%= link_to 'View Bids', view_bids_bid_path(:id=>@item.id), class: "btn btn-primary" %>
-  <% end %>
+  <% end end %>
   </div>
 <%= if (user_signed_in?) && (@item.user_id != User.current_user.id)
       if @item.sale_type == "Instant Sale"
