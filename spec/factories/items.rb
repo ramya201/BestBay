@@ -71,6 +71,19 @@ FactoryGirl.define do
         subcategory_id '2'
     end
 
+    factory :A7, parent: :item do
+      name 'A7'
+      description 'this is A2'
+      price ''
+      quantity '1'
+      sale_type 'Auction'
+      start_time '2012-11-01 00:00:00.0'
+      user_id '1'
+      brand_id '1'
+      category_id '1'
+      subcategory_id '2'
+    end
+
     factory :A6, parent: :item do
       name 'A6'
       description 'this is A6'
