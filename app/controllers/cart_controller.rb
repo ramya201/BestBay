@@ -32,10 +32,13 @@ class CartController < ApplicationController
 			end
 			item.quantity-=cart_item.fetch("table").fetch("count")
 			item.save
+			trans=Transaction.new({user_id: User.current_user.id, item_id: item.id, quantity: cart_item.fetch("table").fetch("count"), cost: item.price})
+			trans.save
 			to_be_removed.append(item)
 		end
 		to_be_removed.each do |rm_item|
 			remove_from_cart(rm_item)
+
 		end
 		flash[:notice] = "checkout successfully"
 		redirect_to :controller => "categories", :action => "index"

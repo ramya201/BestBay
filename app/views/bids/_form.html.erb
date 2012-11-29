@@ -9,10 +9,4 @@
   <%= f.submit "Place a Bid", :class=>"btn btn-primary" %>
 </div>
 <% end %>
-<script>
-    $("#bid_form").submit(function() {
-        if (($("#bid_amount").val() < ($("#highest_bid").val() + 1)) || ($("#bid_amount").val() < ($("#start_price").val() + 1)) )
-        {alert("Bid amount should raise the current highest bid by minimum 1$");
-         return false;}
-    });
-</script>
+

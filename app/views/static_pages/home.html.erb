@@ -1,0 +1,59 @@
+
+<style>
+    body {
+        background-color: black;
+    }
+
+</style>
+<body>
+<div id="myCarousel" class="carousel slide">
+
+  <div class="carousel-inner" align="middle" style="width: 100%;">
+    <div class="item"><img align="middle" src="<%= image_path('ebay1.jpg') %>" /></div>
+    <div class="item"><img align="middle" src="<%= image_path('ebay2.jpg') %>" /></div>
+    <div class="item"><img align="middle" src="<%= image_path('ebay3.jpg') %>" /></div>
+    <div class="item"><img align="middle" src="<%= image_path('ebay4.jpg') %>" /></div>
+    <div class="active item" align="middle">
+      <object class="silverlightControlHost" width="1140px" height="450px"
+
+              type="application/x-silverlight-2"
+              data="data:application/x-silverlight-2," >
+        <param name="source" value="<%= image_path('HomePage.xap') %>"/>
+        <param name="onerror" value="onSilverlightError" />
+        <param name="background" value="transparent" />
+        <param name="minRuntimeVersion" value="4.0.60310.0" />
+        <param name="autoUpgrade" value="true" />
+        <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=4.0.60310.0"
+           style="text-decoration: none;">
+          <img
+          src="http://go.microsoft.com/fwlink/?LinkId=161376"
+          alt="Get Microsoft Silverlight"
+          style="border-style: none"/>
+        </a>
+      </object>
+    </div>
+  </div>
+
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+
+
+<div id="content" align="center">
+  <table>
+    <tr>
+      <td>
+        <a id="buy_button" href="/categories/index"><img src="<%= image_path('BuyBtn.png')%>"></a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    $('.carousel').carousel()
+</script>
+</body>

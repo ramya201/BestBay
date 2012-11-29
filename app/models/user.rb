@@ -18,9 +18,10 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#
+#   roles                  :string(255)
 
 class User < ActiveRecord::Base
+  ROLES = %w[admin client]
 
   # Include default devise modules. Others available are:
   # , :confirmable,
@@ -30,11 +31,15 @@ class User < ActiveRecord::Base
 
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :roles
   attr_accessible :first_name, :image, :last_name, :password
   has_many :items
   has_many :bids
   validates_presence_of :first_name, :last_name
+
+  def admin?
+    self.role == "admin"
+  end
 
   class << self
   def current_user=(user)
