@@ -1,0 +1,23 @@
+<b><p id="notice" style="color: #dc0000;"><%= notice %></p> </b>
+
+<h3>Current Bids</h3>
+<table class="table table-bordered table-condensed" style="width: 60%;border-style: ridge;border-width: 2px;border-color:#262626;">
+  <tr style="background-color: #262626;color:#a9a9a9; ">
+    <th>Item Name</th>
+    <th>Seller Name</th>
+    <th>Bid Amount</th>
+    <th>Current Highest Bid</th>
+    <th>Auction End Time</th>
+  </tr>
+
+
+  <tr>
+    <td><%= link_to Category.name,item_path(Category.item) %></td>
+
+  </tr>
+
+</table>
+
+<br />
+<%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
+

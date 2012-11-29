@@ -21,8 +21,12 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>    <br />
 
+
+
+
+
         <!-- in users/_form.html.erb -->
-        <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
+
 
     <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
 <% end %>

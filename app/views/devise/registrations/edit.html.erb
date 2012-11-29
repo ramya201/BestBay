@@ -1,5 +1,6 @@
 <% provide(:title, 'Edit your Information') %>
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1>Edit <%= resource_name.to_s.humanize %></h1>
+
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -15,15 +16,16 @@
   <%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %>
 
-  <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+  <%= f.label :current_password %> <i>(Please enter current password to confirm the changes)</i><br />
   <%= f.password_field :current_password %>
 
-  <%= f.submit "Update" %>
+
+  <%= f.submit "Update", class: "btn btn-large btn-primary" %>
 <% end %>
 
 <h3>Cancel my account</h3>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %>.</p>
+<p><span class="label label-important">Not happy with BestBay?</span> <%= link_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Please click ok to pay 100$ and leave" }, :method => :delete %>.</p>
 
 <%= link_to "Back", :back %>
 </div>

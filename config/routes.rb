@@ -1,5 +1,7 @@
 BestBay::Application.routes.draw do
 
+  devise_for :admins
+
   devise_for :users
 
   get "seller/index"
@@ -29,7 +31,7 @@ BestBay::Application.routes.draw do
   match '/items/subcategories_by_category' => 'items#subcategories_by_category'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
-
+  match '/categories/new' => 'categories#new'
 
   get "items/index"
 
