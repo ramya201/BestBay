@@ -1,5 +1,5 @@
 <b><p class="notice" style="color:#969696;"><%= flash[:notice] %></p></b>
-<div class="container-fluid">
+<div class="container-fluid" style="padding-left: 100px;border-color: #4b4513;border-style:outset;border-width:2px;background-color: #f5f5ed;">
   <div class="row-fluid">
     <div class="span2" style="width:100%;">
 
@@ -44,6 +44,8 @@
                 <li> <%= link_to 'Sell Item', new_item_path, :remote => true %></li>
                 <li> <%= link_to 'Current Sale', { controller: "items", action: "current_sale" }, id: "current_sale_link"  %></li>
                 <li> <%= link_to 'Current Bids', { controller: "bids", action: "show" } %></li>
+                <li> <%= link_to 'Sale History', { controller: "items", action: "sale_history" } %></li>
+                <li> <%= link_to 'Purchase History', { controller: "items", action: "purchase_history" } %></li>
 
 
               </ul>
@@ -52,7 +54,7 @@
                 <% end %>
           </td>
           <td style="width: 600px;vertical-align: top;">
-            <div id="item_list" style="width: 100%;vertical-align: top;"> <%= render 'categories/item' %></div>
+            <div id="item_list" style="width: 100%;vertical-align: top;"> <%= render 'categories/popular_item' %></div>
           </td>
         </tr>
 

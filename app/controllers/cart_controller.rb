@@ -40,7 +40,7 @@ class CartController < ApplicationController
 			remove_from_cart(rm_item)
 
 		end
-		flash[:notice] = "checkout successfully"
+		flash[:notice] = "Transaction was successfully!!"
 		redirect_to :controller => "categories", :action => "index"
 	end
 end

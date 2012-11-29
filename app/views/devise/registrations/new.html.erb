@@ -1,9 +1,10 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>      <!-- Form for user registration -->
   <%= devise_error_messages! %>
-    <div class="row">
+    <div class="row" style="width: 50%;">
+      <h1 style="padding-left: 40px;">Sign Up</h1><br/>
       <div class="span6 offset3">
 
   <%= f.label :first_name %>

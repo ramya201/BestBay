@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item }
+        format.html { redirect_to @item, notice: 'Item was posted successfully!!' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -85,4 +85,15 @@ class ItemsController < ApplicationController
       puts @bid.amount
     end
   end
+
+
+  def sale_history
+    @auction_items = Item.where(:user_id => User.current_user.id, :sale_type => "Auction")
+    @instant_items = Item.where(:user_id => User.current_user.id, :sale_type => "Instant Sale")
+  end
+
+  def purchase_history
+    @transactions =  Transaction.find_all_by_user_id(User.current_user.id)
+  end
+
 end
