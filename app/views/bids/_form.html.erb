@@ -10,4 +10,21 @@
   <%= f.submit "Place a Bid", :class=>"btn btn-primary" %>
 </div>
 <% end %>
+<script>
+$("#bid_form").submit(function() {
+var msg= new String();
 
+if ($("#bid_amount").val() <= $("#highest_bid").val() )
+{ msg+="Bid value should be atleast $1 greater than highest Bid\n";
+}
+
+if (msg.length >0)
+{
+alert(msg);
+return false;
+
+}
+
+
+});
+</script>
