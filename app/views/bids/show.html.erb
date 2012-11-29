@@ -1,5 +1,7 @@
 <b><p id="notice" style="color: #dc0000;"><%= notice %></p> </b>
-
+ <% if @bids.count == 0 %>
+    <th> No bids to show</th>
+    <% else %>
 <h3>Current Bids</h3>
 <table class="table table-bordered table-condensed" style="width: 60%;border-style: ridge;border-width: 2px;border-color:#262626;">
   <tr style="background-color: #262626;color:#a9a9a9; ">
@@ -20,7 +22,7 @@
   </tr>
 <% end %>
 </table>
-
+<% end %>
 <br />
 <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
 
