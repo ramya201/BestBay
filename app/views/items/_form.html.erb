@@ -83,13 +83,23 @@ $("#item_sale_type").change(function() {
         { msg+="Name cannot be empty\n";
         }
         if ($("#item_quantity").val() == "")
-        { msg+="Quantitycannot be empty\n";
+        { msg+="Quantity cannot be empty\n";
+        }
+        if ($("#item_quantity").val() <= "0")
+        { msg+="Quantity needs to be 1 or more\n";
         }
         if ($("#item_price").val() == "")
         { msg+="Price cannot be empty\n";
         }
         if ($("#item_brand_id").val() == "")
         { msg+="Brand cannot be empty\n";
+        }
+        if ($("#item_sale_type").val() == "Auction")
+        {
+            if ($("#item_end_time").val() == "")
+           {
+               msg+="End Time cannot be empty for Auction\n";
+           }
         }
         if ($("#item_category_id").val() == "")
         { msg+="Category cannot be empty\n";

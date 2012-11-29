@@ -7,10 +7,13 @@
        count = 0
        @items.each do |item|
          if item.user_id == User.current_user.id
+           if item.sale_type == 'Auction'
+            time_left_sec = Time.parse(item.end_time.to_s) - Time.parse(Time.now.to_s)
+           end
+           if (item.sale_type == 'Auction' && time_left_sec >= 0) || (item.sale_type != 'Auction')
            count = count + 1
 
     %>
-
             <td><%= image_tag item.pic.url(:medium) %> </td>
             <td>
               <table class="table table-bordered table-condensed">
@@ -26,6 +29,7 @@
               </table>
             </tr>
         <%
+           end
            end
            end
            if count == 0

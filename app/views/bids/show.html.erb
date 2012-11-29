@@ -1,6 +1,7 @@
 <b><p id="notice" style="color: #dc0000;"><%= notice %></p> </b>
 
 <h3>Current Bids</h3>
+<% if @bids.count != 0 %>
 <table class="table table-bordered table-condensed" style="width: 60%;border-style: ridge;border-width: 2px;border-color:#262626;">
   <tr style="background-color: #262626;color:#a9a9a9; ">
     <th>Item Name</th>
@@ -19,6 +20,7 @@
     <td><%= bid.item.end_time %></td>
   </tr>
 <% end %>
+<% end%>
 </table>
 
 <br />
