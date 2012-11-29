@@ -43,6 +43,8 @@
                 <li> <%= link_to 'Sell Item', new_item_path, :remote => true %></li>
                 <li> <%= link_to 'Current Sale', { controller: "items", action: "current_sale" }, id: "current_sale_link"  %></li>
                 <li> <%= link_to 'Current Bids', { controller: "bids", action: "show" } %></li>
+                <li> <%= link_to 'Sale History', { controller: "items", action: "sale_history" } %></li>
+                <li> <%= link_to 'Purchase History', { controller: "items", action: "purchase_history" } %></li>
 
 
               </ul>

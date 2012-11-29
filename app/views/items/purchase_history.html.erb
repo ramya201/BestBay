@@ -1,0 +1,34 @@
+<h3><%= User.current_user.first_name %>'s Purchase History</h3>
+<br/>
+<h4> Items purchased on Instant Sale</h4>
+<table class="table table-bordered table-condensed" style="width:45%">
+  <tr>
+    <%
+       if @transactions.count != 0
+       @transactions.each do |transaction|
+    %>
+            <td><%= image_tag transaction.item.pic.url(:medium) %> </td>
+            <td>
+
+              <table class="table table-bordered table-condensed">
+                <tr>
+                  <td><b>Item Name:  </b><%= link_to transaction.item.name, item_path(transaction.item) %></td>
+                </tr>
+                <tr>
+                  <td><b>Price:  $</b><%= transaction.item.price %></td>
+                </tr>
+                <tr>
+                  <td><b>Seller: </b><%= transaction.item.user.first_name.to_s + " " + transaction.item.user.last_name.to_s %></td>
+                </tr>
+              </table>
+            </td>
+            </tr>
+        <%
+          end
+           else
+        %> <caption>No items purchased yet</caption>
+
+    <%
+       end
+    %>
+    </table>

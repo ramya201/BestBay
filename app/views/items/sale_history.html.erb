@@ -1,0 +1,105 @@
+<h3><%= User.current_user.first_name %>'s Sale History</h3>
+<br/>
+<h4>Auction Items</h4>
+<table class="table table-bordered table-condensed" style="width:45%">
+
+  <tr>
+
+    <%
+       count_auction_items = 0
+       @auction_items.each do |item|
+         if Time.parse(item.end_time.to_s) > Time.parse(Time.now.to_s)
+           count_auction_items = count_auction_items + 1
+
+    %>
+
+            <td><%= image_tag item.pic.url(:medium) %> </td>
+            <td>
+
+              <table class="table table-bordered table-condensed">
+                <tr>
+                  <td><b>Item Name:  </b><%= link_to item.name, item_path(item) %></td>
+                </tr>
+                <tr>
+                  <td><b>Start Price:  $</b><%= item.price %></td>
+                </tr>
+                <tr>
+                  <td><b>Highest Bid: $ </b><%= get_highest_bid(item.id) %></td>
+                </tr>
+                <tr>
+                  <td><b>Buyer: </b><%=  Bid.where(:amount => get_highest_bid(item.id),:item_id => item.id).first.user.first_name.to_s + " " + Bid.where(:amount => get_highest_bid(item.id),:item_id => item.id).first.user.last_name.to_s %></td>
+                </tr>
+                <tr>
+                  <td><b>Date: </b> <%= item.end_time.to_s %></td>
+                </tr>
+              </table>
+             </td>
+            </tr>
+        <%
+           end
+           end
+           if count_auction_items == 0
+        %> <caption>No items sold yet</caption>
+    <%
+       end
+    %>
+    </table>
+<h4>Instant Sale Items</h4>
+<table class="table table-bordered table-condensed" style="width:45%">
+
+  <tr>
+
+    <%
+       count_instant_items = 0
+       @instant_items.each do |item|
+            @transactions = get_transactions(item.id)
+            if @transactions.count != 0
+                  count_instant_items = count_instant_items + 1
+    %>
+
+            <td><%= image_tag item.pic.url(:medium) %> </td>
+            <td>
+
+              <table class="table table-bordered table-condensed">
+                <tr>
+                  <td><b>Item Name:  </b><%= link_to item.name, item_path(item) %></td>
+                </tr>
+                <tr>
+                  <td><b>Price:  $</b><%= item.price %></td>
+                </tr>
+                <tr>
+                  <td><b>Quantity Sold: </b><%= @transactions.count %></td>
+                </tr>
+                <tr>
+                  <td><b>Quantity Remaining: </b><%=  item.quantity %></td>
+                </tr>
+              </table>
+            </td>
+            <td>
+              <table>
+                <tr>
+                  <th>Buyer</th>
+                  <th>Quantity</th>
+                </tr>
+                <% @transactions.each do |transaction| %>
+                <tr>
+                <td>
+                    <%= User.where(:id=>transaction.user_id).first_name.to_s + " " +  User.where(:id=>transaction.user_id).last_name.to_s %>
+                </td>
+                  <td> 1 </td>
+                </tr>
+                    <% end %>
+              </table>
+            </td>
+            </tr>
+        <%
+           end
+           end
+           if count_instant_items == 0
+        %> <caption>No items sold yet</caption>
+    <%
+       end
+    %>
+    </table>
+
+<%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>

@@ -28,6 +28,7 @@ class Item < ActiveRecord::Base
   belongs_to :brand
   belongs_to :user
   has_many :bids
+  has_many :transactions
 
   has_attached_file :pic, :styles => { :medium => "200x200"},
                     :path => ":rails_root/public/system/:attachment/:id/:style/:filename",

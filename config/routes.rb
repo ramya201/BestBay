@@ -39,6 +39,10 @@ BestBay::Application.routes.draw do
 
   get "items/current_sale"
 
+  get "items/sale_history"
+
+  get "items/purchase_history"
+
   get "bids/new"
 
   get "bids/show"
