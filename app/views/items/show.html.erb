@@ -1,4 +1,5 @@
-<div id="item_list"><%= render 'item_detail' %>
+<b><p id="notice" style="color: #dc0000;"><%= notice %></p> </b>
+<div id="item_list" style="padding:20px;border-color: #4b4513;border-style:outset;border-width:2px;background-color: #f5f5ed;width: 50%;"><%= render 'item_detail' %>
 
 <% if (user_signed_in?) && (@item.user_id == User.current_user.id) %>
     <%= link_to 'Edit Item', edit_item_path(@item), class: "btn btn-primary",:remote=>true %>

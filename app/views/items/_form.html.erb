@@ -57,7 +57,7 @@
 
 <%= f.label :description %>
 <%= f.text_area :description %>
-    <input type="hidden" name="user_id" value="<%= User.current_user.id %>" id="user_id"/>
+    <input type="hidden" name="user_id" value="<%= User.current_user.id %>" id="user_id" size="40x4"/>
 <div class="actions">
   <%= f.submit :class=>"btn btn-primary" %>
 </div>

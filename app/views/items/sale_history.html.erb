@@ -1,14 +1,16 @@
+<div style="padding:10px;width:60%;border-color: #4b4513;border-style:outset;border-width:2px;background-color: #f5f5ed;">
+
 <h3><%= User.current_user.first_name %>'s Sale History</h3>
 <br/>
 <h4>Auction Items</h4>
-<table class="table table-bordered table-condensed" style="width:45%">
+<table class="table table-bordered table-condensed" style="width:100%;">
 
   <tr>
 
     <%
        count_auction_items = 0
        @auction_items.each do |item|
-         if Time.parse(item.end_time.to_s) > Time.parse(Time.now.to_s)
+         if Time.parse(item.end_time.to_s) < Time.parse(Time.now.to_s)
            count_auction_items = count_auction_items + 1
 
     %>
@@ -45,7 +47,7 @@
     %>
     </table>
 <h4>Instant Sale Items</h4>
-<table class="table table-bordered table-condensed" style="width:45%">
+<table class="table table-bordered table-condensed" style="width:100%">
 
   <tr>
 
@@ -84,7 +86,7 @@
                 <% @transactions.each do |transaction| %>
                 <tr>
                 <td>
-                    <%= User.where(:id=>transaction.user_id).first_name.to_s + " " +  User.where(:id=>transaction.user_id).last_name.to_s %>
+                    <%= User.where(:id=>transaction.user_id).first.first_name.to_s + " " +  User.where(:id=>transaction.user_id).first.last_name.to_s %>
                 </td>
                   <td> 1 </td>
                 </tr>
@@ -101,5 +103,6 @@
        end
     %>
     </table>
-
+  </div>
+<br/>
 <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>

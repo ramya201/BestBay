@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item }
+        format.html { redirect_to @item, notice: 'Item was posted successfully!!' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }

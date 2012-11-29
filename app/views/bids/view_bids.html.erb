@@ -1,8 +1,9 @@
+<div style="border-color: #4b4513;border-style:outset;border-width:2px;background-color: #f5f5ed;width: 50%;padding: 10px;">
 <% if @bids != [] %>
     <h3>Bids for <%= @bids[0].item.name %></h3>
     <h4>Current Highest Bid: $  <%= get_highest_bid(@bids[0].item_id) %></h4>
     <br/>
-<table class="table table-bordered table-condensed" style="width: 50%;border-style: ridge;border-width: 2px;border-color:#262626;">
+<table class="table table-bordered table-condensed" style="width: 100%;border-style: ridge;border-width: 2px;border-color:#262626;">
   <tr style="background-color: #262626;color: #777777;">
     <th>Buyer Name</th>
     <th>Bid Amount</th>
@@ -11,7 +12,7 @@
 
   <% @bids.sort_by{|e| -e[:id]}.each do |bid| %>
       <tr>
-        <td><%= bid.user.first_name.to_s + bid.user.last_name.to_s %></td>
+        <td><%= bid.user.first_name.to_s + " "+ bid.user.last_name.to_s %></td>
         <td><%= bid.amount %></td>
         <td><%= bid.created_at %></td>
       </tr>
@@ -22,5 +23,6 @@
     <% end %>
 
 <br />
-
+ </div>
+<br/>
 <%= link_to 'Back', { :controller => "categories", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>

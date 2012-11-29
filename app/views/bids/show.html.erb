@@ -1,7 +1,9 @@
 <b><p id="notice" style="color: #dc0000;"><%= notice %></p> </b>
-
+<div style="width:60%;border-color: #4b4513;border-style:outset;border-width:2px;background-color: #f5f5ed;padding: 10px;">
 <h3>Current Bids</h3>
-<table class="table table-bordered table-condensed" style="width: 60%;border-style: ridge;border-width: 2px;border-color:#262626;">
+<br/>
+<% if @bids.count!=0 %>
+<table class="table table-bordered table-condensed" style="width: 60%;">
   <tr style="background-color: #262626;color:#a9a9a9; ">
     <th>Item Name</th>
     <th>Seller Name</th>
@@ -19,8 +21,11 @@
     <td><%= bid.item.end_time %></td>
   </tr>
 <% end %>
+      <% else %> <caption>No current bids</caption>
+<% end %>
 </table>
-
+</div>
 <br />
+<br/>
 <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
 
