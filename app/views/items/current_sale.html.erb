@@ -1,5 +1,6 @@
+<div style="padding:10px;width:45%;border-color: #4b4513;border-style:outset;border-width:2px;background-color: #f5f5ed;">
 <h3>Current Items on Sale</h3>
-<table class="table table-bordered table-condensed" style="width:45%">
+<table class="table table-bordered table-condensed">
 
   <tr class="success">
 
@@ -7,10 +8,13 @@
        count = 0
        @items.each do |item|
          if item.user_id == User.current_user.id
+           if item.sale_type == 'Auction'
+            time_left_sec = Time.parse(item.end_time.to_s) - Time.parse(Time.now.to_s)
+           end
+           if (item.sale_type == 'Auction' && time_left_sec >= 0) || (item.sale_type != 'Auction')
            count = count + 1
 
     %>
-
             <td><%= image_tag item.pic.url(:medium) %> </td>
             <td>
               <table class="table table-bordered table-condensed">
@@ -23,9 +27,13 @@
                 <tr>
                   <td><b>Price:  $</b><%= item.price %></td>
                 </tr>
+                <tr>
+                  <td><b>Quantity: </b><%= item.quantity %></td>
+                </tr>
               </table>
             </tr>
         <%
+           end
            end
            end
            if count == 0
@@ -34,5 +42,6 @@
        end
     %>
     </table>
-
+    </div>
+<br/>
 <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>

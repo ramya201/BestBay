@@ -3,6 +3,7 @@ class CartController < ApplicationController
 
 	def add
 		add_to_cart(params[:item_obj], params[:qty])
+        flash[:notice] = "Succesfully added to your cart!"
 		redirect_to :controller => "items", :action => "show"
 	end
 
@@ -38,9 +39,12 @@ class CartController < ApplicationController
 		end
 		to_be_removed.each do |rm_item|
 			remove_from_cart(rm_item)
-
 		end
-		flash[:notice] = "checkout successfully"
+
+		#flash[:notice] = "Transaction was completed successfully!!"
+
+		flash[:notice] = "Congratulations! Payment successful."
+
 		redirect_to :controller => "categories", :action => "index"
 	end
 end

@@ -1,7 +1,8 @@
 <%= form_for Bid.new, :html => {:id => "bid_form"} do |f| %>
 <div class="actions">
   <%= f.label :amount %>
-  <%= f.text_field :amount %>    (please enter integer values only)
+  (Please enter integer values only) <br/>
+  <%= f.text_field :amount %>
   <%= f.hidden_field :item_id,:value=>@item.id %>
   <%= f.hidden_field :user_id,:value=> User.current_user.id %>
   <input type="hidden" id="highest_bid" value="<%= get_highest_bid(@item.id) %>">
@@ -9,4 +10,21 @@
   <%= f.submit "Place a Bid", :class=>"btn btn-primary" %>
 </div>
 <% end %>
+<script>
+$("#bid_form").submit(function() {
+var msg= new String();
 
+if ($("#bid_amount").val() <= $("#highest_bid").val() )
+{ msg+="Bid value should be atleast $1 greater than highest Bid\n";
+}
+
+if (msg.length >0)
+{
+alert(msg);
+return false;
+
+}
+
+
+});
+</script>

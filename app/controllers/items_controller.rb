@@ -43,10 +43,15 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
     @item.user = User.find(params[:user_id])
+    if @item.pic_file_name.nil?
+      @item.pic_file_name = "no-image.png"
+      @item.pic_content_type = "image/png"
+      @item.pic_file_size = 13414
+    end
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item }
+        format.html { redirect_to @item, notice: 'Item was posted successfully!!' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -85,4 +90,15 @@ class ItemsController < ApplicationController
       puts @bid.amount
     end
   end
+
+
+  def sale_history
+    @auction_items = Item.where(:user_id => User.current_user.id, :sale_type => "Auction")
+    @instant_items = Item.where(:user_id => User.current_user.id, :sale_type => "Instant Sale")
+  end
+
+  def purchase_history
+    @transactions =  Transaction.find_all_by_user_id(User.current_user.id)
+  end
+
 end
