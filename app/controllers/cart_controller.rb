@@ -41,9 +41,9 @@ class CartController < ApplicationController
 			remove_from_cart(rm_item)
 		end
 
-		#flash[:notice] = "Transaction was completed successfully!!"
+		flash[:notice] = "Congratulations! Payment successful!"
 
-		flash[:notice] = "Congratulations! Payment successful."
+		#flash[:notice] = "Transaction was completed successfully!!"
 
 		redirect_to :controller => "categories", :action => "index"
 	end

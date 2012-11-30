@@ -14,4 +14,6 @@
 class Transaction < ActiveRecord::Base
   attr_accessible :cost, :item_id, :quantity, :user_id
   belongs_to :item
+  belongs_to :user
+  validates_presence_of :item_id, :user_id
 end

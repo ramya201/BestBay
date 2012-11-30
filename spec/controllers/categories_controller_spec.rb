@@ -10,7 +10,7 @@ describe CategoriesController do
 	end
 
 	context "should not show item with 0 quantity or has ended" do
-		it "when retreive all items" do
+		it "when retrieve all items" do
 			get :index
 			assigns[:items].should include(@IS1)
 			assigns[:items].should include(@A1)
@@ -24,7 +24,7 @@ describe CategoriesController do
 			assigns[:items].should_not include(@IS2)
 			assigns[:items].should_not include(@A2)
 		end
-		it "when retreive items of specific subcategory" do
+		it "when retrieve items of specific subcategory" do
 			get :index, {category_id: '1', subcategory_id: '1'}
 			assigns[:items].should include(@IS1)
 			assigns[:items].should include(@A1)
