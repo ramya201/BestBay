@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :image, :last_name, :password
   has_many :items
   has_many :bids
+  has_many :transactions
   validates_presence_of :first_name, :last_name
 
   def admin?

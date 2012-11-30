@@ -42,6 +42,9 @@ class CartController < ApplicationController
 		end
 
 		flash[:notice] = "Congratulations! Payment successful!"
+
+		#flash[:notice] = "Transaction was completed successfully!!"
+
 		redirect_to :controller => "categories", :action => "index"
 	end
 end
