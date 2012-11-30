@@ -34,13 +34,21 @@ class CategoriesController < ApplicationController
   def seller_index
     @items = Item.find_all_by_user_id(params[:id])
   end
+  def new
+    @category = Category.new
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @category }
+    end
+  end
   def create
-    @category = Category.new(params[:bid])
+    @category = Category.new(params[:category])
 
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created!!' }
-        format.json { render json: @category, status: :created, location: @bid }
+        format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
         format.json { render json: @category.errors, status: :unprocessable_entity }

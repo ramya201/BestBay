@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   # , :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,:token_authenticatable
+         :recoverable, :rememberable, :trackable, :validatable,:token_authenticatable, :omniauthable
 
 
   # Setup accessible (or protected) attributes for your model
@@ -40,6 +40,30 @@ class User < ActiveRecord::Base
   def admin?
     self.role == "admin"
   end
+=begin
+  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+    data = access_token.info
+    user = User.where(:email => data["email"]).first
+
+    unless user
+      user = User.create(name: data["name"],
+                         email: data["email"],
+                         password: Devise.friendly_token[0,20]
+      )
+    end
+    user
+  end
+=end
+  devise :omniauthable #followed by anything else you need
+
+  def self.find_for_open_id(access_token, signed_in_resource=nil)
+    data = access_token.info
+    if user = User.where(:email => data["email"]).first
+      user
+    else
+      User.create!(:email => data["email"], :password => Devise.friendly_token[0,20], :first_name => data["fname"], :last_name => data["lname"])
+    end
+  end
 
   class << self
   def current_user=(user)
@@ -49,5 +73,6 @@ class User < ActiveRecord::Base
   def current_user
     Thread.current[:current_user]
   end
+
   end
   end
