@@ -1,6 +1,5 @@
-<h1>Popular Auctions</h1>
-<h4 style="color: #8b0000;padding-left: 160px;"> Hurry up and bid before auction closes!!</h4>
-<br/>
+<h1 style="background-image: url('/images/auction-hammer.png');background-position:150px;background-repeat: no-repeat;background-origin: padding;background-size: contain;">Popular Auctions</h1>
+<h3 style="color: #8b0000;padding-left: 160px;background-image: url('/images/timer.png');background-position:130px;background-repeat: no-repeat;background-origin: padding;background-size: contain;"> Hurry up and bid before auction closes!!</h3>
 <table class="table table-bordered table-condensed" style="width:100%">
   <tr class="success">
     <% if @items.count != 0 %>
@@ -11,7 +10,6 @@
             <% time_left_hours = time_left_sec/3600 %>
             <% time_left_min = time_left_sec/60 %>
             <% days_passed = (item.end_time.to_date - Date.today).to_i %>
-
           <% end%>   <!-- calculate number of days left -->
         <% if (item.sale_type == 'Auction' && time_left_sec >= 0) || (item.sale_type != 'Auction') %>              <!-- Does not show expired auctions -->
    <td><%= image_tag item.pic.url(:medium) %> </td>

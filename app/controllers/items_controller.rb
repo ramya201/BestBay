@@ -43,6 +43,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(params[:item])
     @item.user = User.find(params[:user_id])
+    if @item.pic_file_name.nil?
+      @item.pic_file_name = "no-image.png"
+      @item.pic_content_type = "image/png"
+      @item.pic_file_size = 13414
+    end
 
     respond_to do |format|
       if @item.save

@@ -30,7 +30,7 @@ class Item < ActiveRecord::Base
   has_many :bids
   has_many :transactions
 
-  has_attached_file :pic, :styles => { :medium => "200x200"},
+  has_attached_file :pic, :styles => { :medium => "160x160"},
                     :path => ":rails_root/public/system/:attachment/:id/:style/:filename",
                     :url => "/system/:attachment/:id/:style/:filename"
 
