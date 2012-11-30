@@ -40,11 +40,8 @@ class CartController < ApplicationController
 		to_be_removed.each do |rm_item|
 			remove_from_cart(rm_item)
 		end
-<<<<<<< HEAD
-		flash[:notice] = "Transaction was completed successfully!!"
-=======
-		flash[:notice] = "Congratulations! Payment successful."
->>>>>>> 6edd9cba99d97bdbccee1e0c475a13b22782cb0f
+
+		flash[:notice] = "Congratulations! Payment successful!"
 		redirect_to :controller => "categories", :action => "index"
 	end
 end
