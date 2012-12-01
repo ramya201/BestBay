@@ -78,6 +78,7 @@ $("#item_sale_type").change(function() {
     var msg= new String();
     $("#post_form").submit(function() {
         var msg= new String();
+        var today = new Date();
 
         if ($("#item_name").val() == "")
         { msg+="Name cannot be empty\n";
@@ -96,10 +97,16 @@ $("#item_sale_type").change(function() {
         }
         if ($("#item_sale_type").val() == "Auction")
         {
+            var enddate = new Date($("#item_end_time").val())
             if ($("#item_end_time").val() == "")
            {
-               msg+="End Time cannot be empty for Auction\n";
+               msg+="End Date cannot be empty for Auction\n";
            }
+            if (enddate < today)
+            {
+                msg+="End Date cannot be in the past\n";
+            }
+
         }
         if ($("#item_category_id").val() == "")
         { msg+="Category cannot be empty\n";
