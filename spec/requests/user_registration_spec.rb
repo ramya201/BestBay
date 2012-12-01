@@ -13,7 +13,7 @@ describe "UserRegistration" do
       fill_in "Password", :with => "passw123"
       fill_in "Password confirmation", :with => "passw123"
 
-      click_button "Sign up"
+      click_button "Create my account"
       visit "/categories/index"
       page.should have_content('Test')
     end
@@ -29,7 +29,7 @@ describe "UserRegistration" do
       fill_in "Password", :with => "passw"
       fill_in "Password confirmation", :with => "passw"
 
-      click_button "Sign up"
+      click_button "Create my account"
       page.should have_content('Sign up')
     end
 
@@ -45,7 +45,7 @@ describe "UserRegistration" do
       fill_in "Password", :with => "passw123"
       fill_in "Password confirmation", :with => "passw123"
 
-      click_button "Sign up"
+      click_button "Create my account"
       page.should have_content('Sign up')
     end
 
@@ -61,7 +61,7 @@ describe "UserRegistration" do
       fill_in "Password", :with => "passw123"
       fill_in "Password confirmation", :with => "passw123"
 
-      click_button "Sign up"
+      click_button "Create my account"
       page.should have_content('Sign up')
     end
 
@@ -76,7 +76,7 @@ describe "UserRegistration" do
       fill_in "Password", :with => "passw123"
       fill_in "Password confirmation", :with => "passw123"
 
-      click_button "Sign up"
+      click_button "Create my account"
       page.should have_content('Sign up')
     end
 
@@ -91,7 +91,7 @@ describe "UserRegistration" do
       fill_in "Password", :with => "passw123"
       fill_in "Password confirmation", :with => "passw123"
 
-      click_button "Sign up"
+      click_button "Create my account"
       page.should have_content('Sign up')
     end
 

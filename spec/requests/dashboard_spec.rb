@@ -15,8 +15,8 @@ describe "dashboard" do
 
     click_button "Sign in"
 
-    item = FactoryGirl.create(:item, :name => "Kodak camera 10 megapixel", :user => user)
 
+    item = FactoryGirl.create(:A7, :name => "Kodak camera 10 megapixel", :user => user)
     click_link "Current Sale"
 
    page.should have_content('Kodak')
@@ -32,7 +32,7 @@ describe "dashboard" do
     fill_in "Email",    :with => "testuser@abc.com"
     fill_in "Password", :with => "ilovegrapes"
     click_button "Sign in"
-    item = FactoryGirl.create(:item, :name => "Kodak camera 10 megapixel", :user => user1)
+    item = FactoryGirl.create(:A7, :name => "Kodak camera 10 megapixel", :user => user1)
     click_link "Current Sale"
     page.should have_content('Kodak')
 
@@ -48,7 +48,7 @@ describe "dashboard" do
     fill_in "Email",    :with => "testuser2@abc.com"
     fill_in "Password", :with => "ilovegrapes"
     click_button "Sign in"
-    item = FactoryGirl.create(:item, :name => "Sony camera 10 megapixel", :user => user2)
+    item = FactoryGirl.create(:A7, :name => "Sony camera 10 megapixel", :user => user2)
     click_link "Current Sale"
     page.should have_content('Sony')
     page.should have_no_content('Kodak')

@@ -5,7 +5,7 @@ describe "Item Search" do
   it "should list search results based on keywords" do
     @user_attr = FactoryGirl.attributes_for(:user)
     user = User.create!(@user_attr)
-    item = FactoryGirl.create(:item, :name => "Kodak camera 10 megapixel", :user => user)
+    item = FactoryGirl.create(:A7, :name => "Kodak camera 10 megapixel", :user => user)
     visit "/welcome/index"
     fill_in('search_keyword', :with => 'Kodak')
     click_button "search_submit"

@@ -13,9 +13,9 @@ describe "categories/show.html.erb" do
   fill_in "Password", :with => "ilovegrapes"
 
   click_button "Sign in"
-  item = FactoryGirl.create(:A7, :name => "Kodak camera 10 megapixel", :user => user, :end_time => "2012-12-1")
+  item = FactoryGirl.create(:A7, :name => "Kodak camera 10 megapixel", :user => user)
 
-  visit "/categories/index"
+  visit "/items/current_sale"
   days_passed = (item.end_time.to_date - Date.today).to_i
   page.should have_content("#{days_passed} Days")
   end

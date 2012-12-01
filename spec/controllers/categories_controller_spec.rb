@@ -7,16 +7,11 @@ describe CategoriesController do
 		@IS2=FactoryGirl.create(:IS2)
 		@A1=FactoryGirl.create(:A1)
 		@A2=FactoryGirl.create(:A2)
+    @A8=FactoryGirl.create(:A8)
 	end
 
-	context "should not show item with 0 quantity or has ended" do
-		it "when retrieve all items" do
-			get :index
-			assigns[:items].should include(@IS1)
-			assigns[:items].should include(@A1)
-			assigns[:items].should_not include(@IS2)
-			assigns[:items].should_not include(@A6)
-		end
+	context "should not show item with quantitymore than 0" do
+
 		it "when search for items" do
 			get :index, search: 'is1'
 			assigns[:items].should include(@IS1)
@@ -31,6 +26,19 @@ describe CategoriesController do
 			assigns[:items].should_not include(@IS2)
 			assigns[:items].should_not include(@A2)
 		end
-	end
+  end
+
+  context "it searches for item which" do
+
+    it "has quantity more than 0 it is displayed" do
+      get :index, search: 'is1'
+      assigns[:items].should include(@IS1)
+    end
+
+    it "has time left for auction and is displayed" do
+      get :index, search: 'a1'
+      assigns[:items].should include(@A1)
+    end
+  end
 
 end
