@@ -27,22 +27,23 @@
                 <% days_passed = 0 %>
                 <% if item.sale_type == 'Auction' %>
                     <% time_left_sec = Time.parse(item.end_time.to_s) - Time.parse(Time.now.to_s) %>
-                    <% time_left_hours = time_left_sec/3600 %>
-                    <% time_left_min = time_left_sec/60 %>
+                    <% time_left_hours_1 = time_left_sec / 3600 %>
+                    <% time_left_min_1 = time_left_sec / 60 %>
                     <% days_passed = (item.end_time.to_date - Date.today).to_i %>
 
-                <% end%>
+
                 <tr>
-                  <td><b>Time Left: </b><% if time_left_hours < 1 %>
-                      <%= time_left_min.round%> Minutes </td>
-                  <% elsif time_left_hours < 24 %>
-                      <%= time_left_hours.round%> Hours </td>
+                  <td><b>Time Left: </b><% if time_left_min_1 < 60 %>
+                      <%= time_left_min_1.round%> Minutes </td>
+                  <% elsif days_passed < 1 %>
+                   <%= time_left_hours_1.round%> Hours </td>
                   <% elsif days_passed < 7 %>
-                      <%= days_passed%> Days</td>
+                   <%= days_passed%> Day(s)</td>
                   <% else %>
-                      <%= (days_passed/7).round %> Weeks (approx)</td>
-                  <% end %> </td>
+                  <%= (days_passed/7).round %> Weeks (approx)</td>
+                  <% end %>
                 </tr>
+                <% end%>
                 <tr>
                   <td><b>Price:  $</b><%= item.price %></td>
                 </tr>
