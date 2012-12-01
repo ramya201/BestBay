@@ -15,7 +15,12 @@
            count = count + 1
 
     %>
-            <td><%= image_tag item.pic.url(:medium) %> </td>
+            <td> <% if item.pic.exists? %>
+                  <img src="/images/moimg.jpg">
+                  <% else %>
+              <%= image_tag item.pic.url(:medium)%>
+                  <% end %>
+                  </td>
             <td>
               <table class="table table-bordered table-condensed">
                 <tr>
