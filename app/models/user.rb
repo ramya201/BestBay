@@ -31,16 +31,14 @@ class User < ActiveRecord::Base
 
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :roles
+  attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :image, :last_name, :password
   has_many :items
   has_many :bids
   has_many :transactions
   validates_presence_of :first_name, :last_name
 
-  def admin?
-    self.role == "admin"
-  end
+
 =begin
   def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
