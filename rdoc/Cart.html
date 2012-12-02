@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class Cart - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>lib/cart/simple_cart.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</nav>
+
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li><a href="#method-c-load">::load</a>
+    
+    <li><a href="#method-c-new">::new</a>
+    
+    <li><a href="#method-i-add">#add</a>
+    
+    <li><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li><a href="#method-i-find">#find</a>
+    
+    <li><a href="#method-i-find_item">#find_item</a>
+    
+    <li><a href="#method-i-find_item_index">#find_item_index</a>
+    
+    <li><a href="#method-i-items">#items</a>
+    
+    <li><a href="#method-i-items-3D">#items=</a>
+    
+    <li><a href="#method-i-remove">#remove</a>
+    
+    <li><a href="#method-i-save">#save</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+    <li class="file"><a href="./commands/omkar/omkar_commands_txt.html">omkar_commands</a>
+  
+    <li class="file"><a href="./doc/README_FOR_APP.html">README_FOR_APP</a>
+  
+    <li class="file"><a href="./lib/daemons/auction_manager_ctl.html">auction_manager_ctl</a>
+  
+    <li class="file"><a href="./public/robots_txt.html">robots</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BestBay.html">BestBay</a>
+  
+    <li><a href="./BestBay/Application.html">BestBay::Application</a>
+  
+    <li><a href="./Users.html">Users</a>
+  
+    <li><a href="./Users/OmniauthCallbacksController.html">Users::OmniauthCallbacksController</a>
+  
+    <li><a href="./AddDeviseToUsers.html">AddDeviseToUsers</a>
+  
+    <li><a href="./AddIndexes.html">AddIndexes</a>
+  
+    <li><a href="./AddPicPaperclip.html">AddPicPaperclip</a>
+  
+    <li><a href="./Admin.html">Admin</a>
+  
+    <li><a href="./ApplicationController.html">ApplicationController</a>
+  
+    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
+  
+    <li><a href="./Bid.html">Bid</a>
+  
+    <li><a href="./BidsController.html">BidsController</a>
+  
+    <li><a href="./BidsHelper.html">BidsHelper</a>
+  
+    <li><a href="./Brand.html">Brand</a>
+  
+    <li><a href="./Cart.html">Cart</a>
+  
+    <li><a href="./CartController.html">CartController</a>
+  
+    <li><a href="./CartHelper.html">CartHelper</a>
+  
+    <li><a href="./CartItem.html">CartItem</a>
+  
+    <li><a href="./CategoriesController.html">CategoriesController</a>
+  
+    <li><a href="./CategoriesHelper.html">CategoriesHelper</a>
+  
+    <li><a href="./Category.html">Category</a>
+  
+    <li><a href="./CreateBids.html">CreateBids</a>
+  
+    <li><a href="./CreateBrands.html">CreateBrands</a>
+  
+    <li><a href="./CreateCategories.html">CreateCategories</a>
+  
+    <li><a href="./CreateItems.html">CreateItems</a>
+  
+    <li><a href="./CreateSubcategories.html">CreateSubcategories</a>
+  
+    <li><a href="./CreateTransactions.html">CreateTransactions</a>
+  
+    <li><a href="./CreateUsers.html">CreateUsers</a>
+  
+    <li><a href="./DeviseCreateAdmins.html">DeviseCreateAdmins</a>
+  
+    <li><a href="./Item.html">Item</a>
+  
+    <li><a href="./ItemModify.html">ItemModify</a>
+  
+    <li><a href="./ItemRemoveStartPrice.html">ItemRemoveStartPrice</a>
+  
+    <li><a href="./ItemsController.html">ItemsController</a>
+  
+    <li><a href="./ItemsHelper.html">ItemsHelper</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./RemoveImageToItem.html">RemoveImageToItem</a>
+  
+    <li><a href="./SellerController.html">SellerController</a>
+  
+    <li><a href="./SellerHelper.html">SellerHelper</a>
+  
+    <li><a href="./StaticPagesController.html">StaticPagesController</a>
+  
+    <li><a href="./SubcategoriesController.html">SubcategoriesController</a>
+  
+    <li><a href="./SubcategoriesHelper.html">SubcategoriesHelper</a>
+  
+    <li><a href="./Subcategory.html">Subcategory</a>
+  
+    <li><a href="./Transaction.html">Transaction</a>
+  
+    <li><a href="./TransactionsHelper.html">TransactionsHelper</a>
+  
+    <li><a href="./User.html">User</a>
+  
+    <li><a href="./WelcomeController.html">WelcomeController</a>
+  
+    <li><a href="./WelcomeHelper.html">WelcomeHelper</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class Cart</h1>
+
+  <div id="description" class="description">
+    
+<p>This class is holds the cart items and deals with adding and removing them</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(data)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>loads cart with items stored in cookies in JSON format</p>
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-identifier">cart</span> = <span class="ruby-constant">Cart</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-identifier">cart</span>.<span class="ruby-identifier">items</span> = <span class="ruby-identifier">data</span>
+    <span class="ruby-ivar">@items</span>=<span class="ruby-identifier">cart</span>.<span class="ruby-identifier">items</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">cart</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- load-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- load-method -->
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>inits cart with empty array of items</p>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@items</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(selected_item, count = 1)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>adds items to the cart, by default adds one item if item already exists
+then increases item count, otherwise creates new <a
+href="CartItem.html">CartItem</a></p>
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">selected_item</span>, <span class="ruby-identifier">count</span> = <span class="ruby-value">1</span>)
+  <span class="ruby-identifier">item</span> = <span class="ruby-identifier">find_item</span>(<span class="ruby-identifier">selected_item</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">init_count</span> = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;count&quot;</span>).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">init_count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">count</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">item</span>.<span class="ruby-identifier">store</span>(<span class="ruby-string">&quot;count&quot;</span>, <span class="ruby-identifier">init_count</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">struct</span> = <span class="ruby-constant">CartItem</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">struct</span>.<span class="ruby-identifier">cart_item_id</span> = <span class="ruby-identifier">selected_item</span>.<span class="ruby-identifier">id</span>
+    <span class="ruby-identifier">struct</span>.<span class="ruby-identifier">count</span> = <span class="ruby-identifier">count</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">struct</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- add-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- add-method -->
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>checks if items in cart are empty</p>
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- empty-3F-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- empty-3F-method -->
+
+    
+      <div id="method-i-find_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_item</span><span
+            class="method-args">(selected_item)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this is a facade method for finding an item in the cart</p>
+          
+
+          
+          <div class="method-source-code" id="find_item-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_item</span>(<span class="ruby-identifier">selected_item</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">selected_item</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_item-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_item-method -->
+
+    
+      <div id="method-i-items" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>returns array of items</p>
+          
+
+          
+          <div class="method-source-code" id="items-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@items</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items-method -->
+
+    
+      <div id="method-i-items-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">items=</span><span
+            class="method-args">(selected_items)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>takes array of items</p>
+          
+
+          
+          <div class="method-source-code" id="items-3D-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">items=</span>(<span class="ruby-identifier">selected_items</span>)
+  <span class="ruby-ivar">@items</span> = <span class="ruby-identifier">selected_items</span>.<span class="ruby-identifier">to_a</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- items-3D-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- items-3D-method -->
+
+    
+      <div id="method-i-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">(selected_item, count = nil)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>remove all selected_items with id 1 cart.remove(1) remove 2 selected_items
+with id 1 cart.remove(1, 2)</p>
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">selected_item</span>, <span class="ruby-identifier">count</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span> = <span class="ruby-identifier">find_item</span>(<span class="ruby-identifier">selected_item</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;count&quot;</span>] <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">count</span>
+      <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-identifier">find_item_index</span>(<span class="ruby-identifier">selected_item</span>))
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;count&quot;</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count</span>
+      <span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;count&quot;</span>] = (<span class="ruby-identifier">item</span>[<span class="ruby-string">&quot;count&quot;</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">count</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- remove-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- remove-method -->
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>flattens/serializes items array to JSON string format</p>
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+  <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">to_json</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- save-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- save-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(selected_item)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>finds an item in the cart items array the items array contains
+flattened/serialized items</p>
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">selected_item</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@items</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">found_item</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;table&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;cart_item_id&quot;</span>).<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">selected_item</span>.<span class="ruby-identifier">id</span>)
+        <span class="ruby-identifier">found_item</span> = <span class="ruby-identifier">item</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;table&quot;</span>)
+      <span class="ruby-keyword">end</span>
+    }
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">found_item</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find-method -->
+
+    
+      <div id="method-i-find_item_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_item_index</span><span
+            class="method-args">(selected_item)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>finds the index of an existing item in the items array useful for removing
+items from array</p>
+          
+
+          
+          <div class="method-source-code" id="find_item_index-source">
+            <pre><span class="ruby-comment"># File lib/cart/simple_cart.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_item_index</span>(<span class="ruby-identifier">selected_item</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@items</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">found_item</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">iterator</span> = <span class="ruby-value">0</span>
+    <span class="ruby-identifier">found_item_index</span> = <span class="ruby-value">0</span>
+    <span class="ruby-ivar">@items</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment">#item = JSON.parse(item.to_json)</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;table&quot;</span>).<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;cart_item_id&quot;</span>).<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">selected_item</span>.<span class="ruby-identifier">id</span>)
+        <span class="ruby-identifier">found_item_index</span> = <span class="ruby-identifier">iterator</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">iterator</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">iterator</span>
+    }
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">found_item_index</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- find_item_index-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- find_item_index-method -->
+
+    
+    </section><!-- protected-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

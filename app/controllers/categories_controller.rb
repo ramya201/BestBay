@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  #shows items based on the category and sub category
+  ## shows items based on the category and sub category
   def index
     @categories = Category.all
     if params.has_key?("search")
