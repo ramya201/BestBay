@@ -30,26 +30,30 @@ class CategoriesController < ApplicationController
     end
   end
 
+  # default action
   def show
     respond_to do |format|
       format.html # index.html
     end
   end
 
+  # list all selling items
   def seller_index
     @items = Item.find_all_by_user_id(params[:id])
   end
+
+  # used to add category page
   def new
     @category = Category.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @category }
     end
   end
+
+  # used to add category
   def create
     @category = Category.new(params[:category])
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created!!' }

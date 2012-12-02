@@ -1,8 +1,8 @@
 class BidsController < ApplicationController
 
+  # show bids
   def show
     @bids = Bid.where("user_id = ?",User.current_user.id)
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @bids }
@@ -45,5 +45,4 @@ class BidsController < ApplicationController
        format.json { render json: @bids }
      end
   end
-
 end

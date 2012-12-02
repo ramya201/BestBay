@@ -12,6 +12,7 @@
           </tr>
           <tr><td><img src="<%= image_path('shopping_cart.png')%>" height="140px" width="150px"></td></tr>
           <tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items in your cart</h4></td></tr>
+          <!-- checkout button -->
           <tr><td style="padding-left: 40px;">   <%= link_to 'Checkout',{ :controller => "cart", :action => "checkout"},:class => "btn btn-primary" %> </td> </tr>
           <tr> <td style="padding-left: 40px;">
             <%= link_to 'Back', request.env['HTTP_REFERER'], :class=> "btn btn-primary" %>
@@ -30,6 +31,7 @@
             <th>Total</th>
             <th></th>
           </tr>
+          <!-- list all the items in the cart -->
           <% @_controller.get_all_items_in_cart.each do |cart_item|%>
           <% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
           <tr>
