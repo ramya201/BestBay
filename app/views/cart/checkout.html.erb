@@ -9,6 +9,7 @@
 						end %>Checkout Page</h4></td>
 					</tr>
 					<tr><td><h4>You have <%= @_controller.get_total_item_count.to_s%> items to checkout</h4></td></tr>
+                    <!-- pay button and back button -->
 					<tr><td style="padding-left: 40px;">   <%= link_to 'Pay Now',{:controller => "cart", :action => "pay"},:class => "btn btn-primary" %> </td> </tr>
 					<tr><td style="padding-left: 50px;"><%= link_to 'Back', { :controller => "cart", :action => "index"}, :method => "get", :class=> "btn btn-primary"%>
 					</td></tr>
@@ -25,6 +26,7 @@
 						<th>Quantity</th>
 						<th>Total</th>
 					</tr>
+                    <!-- list all the item for checkout -->
 					<% @_controller.get_all_items_in_cart.each do |cart_item|%>
 					<% item=Item.find(cart_item.fetch("table").fetch("cart_item_id"))%>
 					<tr>

@@ -1,27 +1,33 @@
 class CartController < ApplicationController
 	include CartHelper
 
+    # add item to cart
 	def add
 		add_to_cart(params[:item_obj], params[:qty])
         flash[:notice] = "Succesfully added to your cart!"
 		redirect_to :controller => "items", :action => "show"
 	end
 
+    # show item
 	def get
 		redirect_to :controller => "items", :action => "show"
 	end
 
+    # remove item from cart
 	def remove
 		remove_from_cart(Item.find(params[:id]))
 		redirect_to :controller => "cart", :action => "index"
 	end
 
+    # action used to list items in cart
 	def index
 	end
 	
+    # action used for checkout page
 	def checkout
 	end
 
+    # action used to make payment and finish internal transactions
 	def pay
 		items=get_all_items_in_cart
 		to_be_removed=Array.new
