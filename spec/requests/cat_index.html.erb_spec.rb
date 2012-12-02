@@ -17,7 +17,7 @@ describe "categories/show.html.erb" do
 
   visit "/items/current_sale"
   days_passed = (item.end_time.to_date - Date.today).to_i
-  page.should have_content("#{days_passed} Days")
+  page.should have_content("#{days_passed} Day(s)")
   end
 
   it "removes auction items after end date has passed from the view" do
